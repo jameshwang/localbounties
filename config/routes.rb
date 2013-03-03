@@ -4,4 +4,8 @@ Localbounties::Application.routes.draw do
   resources :bounties
   resources :tests
 
+
+  namespace :admin do
+    resources :bounties
+  end
 end

@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Admin
+    %meta{:charset => "utf-8"}
+      = stylesheet_link_tag    "admin", :media => "all"
+      = javascript_include_tag "admin"
+      = yield :javascript
+      = yield :stylesheet
+      = yield :meta_tag
+      = yield :head
+      = csrf_meta_tags
+  %body
+    #navigation-container.navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.brand LocalBounties
+          .nav-collapse
+            %ul.nav
+              %li= link_to "Users", "#"
+              %li= link_to "Bounties", admin_bounties_path
+    .container
+      .row
+        .span12
+          = content_for?(:content) ? yield(:content) : yield
+    = content_for?(:scripts) ? yield(:scripts) : nil

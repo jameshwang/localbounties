@@ -33,6 +33,7 @@ gem 'jquery-rails'
 
 gem 'money'
 gem "american_date"
+gem "twitter-bootstrap-rails"
 
 gem 'backbone-on-rails'
 gem 'haml-rails'
