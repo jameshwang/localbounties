@@ -3,7 +3,6 @@ module Admin
     # GET /bounties
     # GET /bounties.json
     def index
-
       @bounties = Bounty.all
 
       respond_to do |format|
