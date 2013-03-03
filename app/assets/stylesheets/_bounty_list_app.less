@@ -5,7 +5,8 @@
   width: @side_nav_width;
   min-height: 200px;
   float: left;
-  background: #f9f9f9;
+  min-height: 600px;
+  background: #333;
 
   .side-nav-item {
     width: @side_nav_width - 20px;
@@ -14,10 +15,14 @@
     font-size: 14px;
     line-height: 20px;
     border-bottom: 1px solid #eee;
-    background: #f7f7f7;
+    border-bottom: 1px solid #2c2c2c;
+    color: #888;
+    // background: #f7f7f7;
+    // background: #333;
 
     &.active {
-      background: #eee;
+      background: #303030;
+      color: #eee;
     }
   }
 }
@@ -50,6 +55,7 @@
   min-height: 400px;
   float: left;
   background: #282828;
+  .inner-shadow(0,0,1px,#000);
   padding-top: 2px;
 }
 
@@ -164,6 +170,7 @@
   height: 34px;
   background: #363636;
   border-bottom: 1px solid #000;
+  .double-inner-shadow(1px,0,0,#2c2c2c,-1px,0,0,#2c2c2c);
 
   .filter-button {
     width: 100px;
@@ -175,7 +182,7 @@
     text-align: center;
     color: #fff;
     position: absolute;
-    left: 10px;
+    left: 4px;
     top: 4px;
     font-size: 12px;
     line-height: 18px;
@@ -197,7 +204,7 @@
 .bounty-mini-nav-container {
   width: @content_width;
   height: 60px;
-  background: #fafafa;
+  
   float: left;
 }
 
@@ -205,32 +212,36 @@
   width: @content_width;
   height: 60px;
 
+
   .nav-item {
-    .primary_font_bold();
+    // .primary_font_bold();
     width: (@content_width - 2px)/3;
-    height: 24px;
+    height: 24px - 1px;
     float: left;
     text-align: center;
     font-size: 12px;
     line-height: 18px;
     text-transform: uppercase;
+    background: #303030;
     color: #aaa;
     padding-top: 36px;
     letter-spacing: 1px;
     cursor: pointer;
+    border-bottom: 1px solid #111;
+    text-shadow: 0,0,1px,#000;
 
     &.active {
-      background: #fff;
-      color: #333;
+      background: #2a2a2a;
+      color: #ddd;
     }
 
     &:first-child {
-      border-right: 1px solid #eee;
+      border-right: 1px solid #222;
     }
 
     &:last-child {
-      border-left: 1px solid #eee;
-      .inner-shadow(-1px, 0, 0, #eee);
+      border-left: 1px solid #222;
+      .inner-shadow(-1px, 0, 0, #222);
     }
   }
 }

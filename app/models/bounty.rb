@@ -18,6 +18,7 @@
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
 #
+require 'firebase'
 
 class Bounty < ActiveRecord::Base
   attr_accessible :description,
@@ -46,7 +47,6 @@ class Bounty < ActiveRecord::Base
   end
 
   def create_firebase
-    require 'firebase'
     Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.push("Bounty-#{id}", { :id => id})
     Firebase.set("Bounty-#{id}", { :id => id,
@@ -65,7 +65,6 @@ class Bounty < ActiveRecord::Base
   end
 
   def update_firebase
-    require 'firebase'
     Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
