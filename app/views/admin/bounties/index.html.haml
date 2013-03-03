@@ -34,7 +34,7 @@
       %td= bounty.status
       %td= link_to 'Show', admin_bounty_path(bounty)
       %td= link_to 'Edit', edit_admin_bounty_path(bounty)
-      %td= link_to 'Destroy', bounty, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Destroy', [:admin,bounty], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
