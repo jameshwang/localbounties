@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'thin'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+group :development do
+  gem 'annotate', '2.4.1.beta1'
+end
 
 group :development, :test do
+  gem "rspec-rails", "~> 2.0"
   gem 'pg'
 end
 
@@ -18,7 +20,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'therubyracer'
+  gem 'less-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'backbone-on-rails'
   gem 'jquery-rails'

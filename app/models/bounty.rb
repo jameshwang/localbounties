@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: bounties
+#
+#  id                :integer         not null, primary key
+#  owner_id          :integer
+#  hunter_id         :integer
+#  title             :string(255)
+#  description       :text
+#  due_date          :datetime
+#  duration          :string(255)
+#  price             :integer
+#  latitude          :float
+#  longitude         :float
+#  verification      :text
+#  verification_type :string(255)
+#  status            :string(255)
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
+#
+
 class Bounty < ActiveRecord::Base
   attr_accessible :description,
                   :due_date,
