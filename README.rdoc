@@ -1,5 +1,3 @@
-Random change
-
 http://ruby.awsblog.com/post/Tx2AK2MFX0QHRIO/Deploying-Ruby-Applications-to-AWS-Elastic-Beanstalk-with-Git
 
 1. Update Python 2.7
@@ -7,23 +5,23 @@ http://ruby.awsblog.com/post/Tx2AK2MFX0QHRIO/Deploying-Ruby-Applications-to-AWS-
 2. Verify python --version otherwise update path
 export PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH"
 
-3. Download AWS Dev Tools and extract folder
+2. Download AWS Dev Tools and extract folder
 http://aws.amazon.com/code/6752709412171743
 
-4. Update cli PATH to dev tools folder
+3. Update cli PATH to dev tools folder
 
--- START HERE AFTER CONFIG --
 
-5. Run AWSDevTools-RepositorySetup.sh
+4. Run AWSDevTools-RepositorySetup.sh
 
-6. git aws.config
+5. git aws.config
 
 AWS Region [default to us-east-1]: us-west-1
+
 AWS Elastic Beanstalk Application: localbounties
+
 AWS Elastic Beanstalk Environment: localbounties-env
 
-7. Update ~/.elasticbeanstalk/aws_credential_file
-
+6. Update ~/.elasticbeanstalk/aws_credential_file
 
 
 http://ruby.awsblog.com/post/Tx2AK2MFX0QHRIO/Deploying-Ruby-Applications-to-AWS-Elastic-Beanstalk-with-Git
