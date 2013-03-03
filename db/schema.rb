@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303031110) do
+ActiveRecord::Schema.define(:version => 20130303053455) do
 
   create_table "bounties", :force => true do |t|
     t.integer  "owner_id"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(:version => 20130303031110) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "user_pic"
+    t.string   "stripe_id"
+    t.string   "stripe_tok"
+    t.string   "city"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
 end

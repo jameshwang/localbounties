@@ -32,6 +32,9 @@ class Bounty < ActiveRecord::Base
                   :verification_type,
                   :verification
 
+  belongs_to :hunter, :class_name => "User"
+  belongs_to :owner, :class_name => "User"
+
   before_save :update_due_date
   after_save :update_firebase
 
