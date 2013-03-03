@@ -1,6 +1,7 @@
 Localbounties::Application.routes.draw do
 
   root  :to => "home#index"
+
   resources :bounties
   resources :tests
 
@@ -8,4 +9,9 @@ Localbounties::Application.routes.draw do
   namespace :admin do
     resources :bounties
   end
+
+  namespace :api do
+    resources :bounties
+  end
+
 end
