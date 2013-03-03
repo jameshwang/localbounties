@@ -16,6 +16,8 @@ test: &defaults
 production: &defaults
   adapter: postgresql
   encoding: utf8
-  database: localbounties_production
-  username: james
-  host: localhost
+  password: itf5Y6oqk0Zyg5MyqAggR4s683
+  database: d2b8mnkm7q4qpu
+  username: mtxghjxiwxbyez
+  host: ec2-23-23-201-251.compute-1.amazonaws.com
+  port: 5432
