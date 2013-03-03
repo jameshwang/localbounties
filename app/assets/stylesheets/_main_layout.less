@@ -1,0 +1,47 @@
+@import '_mixins.less';
+@import '_variables.less';
+
+body {
+  background: #fafafa;
+  .primary_font();
+  color: #333;
+}
+
+.wrapper {
+  width: 100%;
+  min-width: @app_width;
+  float: left;
+}
+
+.container {
+  width: @app_width;
+  margin: auto;
+  position: relative;
+}
+
+//  End base styles
+
+.logo {
+  font-size: 20px;
+  line-height: 30px;
+  .primary_font_bold();
+  padding: 8px 0;
+  float: left;
+}
+
+.header-wrapper {
+  height: 50px;
+  background: #fff;
+}
+
+.body-container {
+  min-height: 200px;
+}
+
+.user-box {
+  height: 50px;
+  width: 140px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

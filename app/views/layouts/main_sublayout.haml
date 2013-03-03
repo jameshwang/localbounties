@@ -1,0 +1,30 @@
+=javascript 'bounty_list_app_manifest'
+
+- content_for :content do
+  = render :partial => 'shared/header'
+  .container.body-container
+    #bounty-side-nav.bounty-side-nav
+    #bounty-content-box.bounty-content-box
+      #bounty-mini-nav.bounty-mini-nav
+      #bounty-sub-content.bounty-sub-content
+
+  =yield
+  = render :partial => 'shared/footer'
+
+  :javascript
+    $(function () {
+      Bounty.BountyListApp.init({
+        bounties: [
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          }
+        ]
+      });
+    });
+
+= render :template => 'layouts/application'

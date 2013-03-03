@@ -1,0 +1,32 @@
+// Widths
+@app_width: 700px;
+@side_nav_width: 250px;
+@content_width: @app_width - @side_nav_width;
+
+// Typography
+// -------------------------
+@dinFontFamily:           "DINPro-Light", sans-serif;
+@dinFontFamilyMedium:     "DINPro-Medium", sans-serif;
+@helveticaFontFamily:     "Helvetica Neue", Helvetica, Arial, sans-serif;
+@helveticaLightFontFamily:"HelveticaNeue-Light", sans-serif;
+
+@primaryFontFamily:       @dinFontFamily;
+@primaryFontFamilyBold:    @dinFontFamilyMedium;
+@secondaryFontFamily:     @helveticaFontFamily;
+@tertiaryFontFamily:      @helveticaLightFontFamily;
+
+.primary_font() {
+  font-family: @primaryFontFamily;
+}
+
+.primary_font_bold() {
+  font-family: @primaryFontFamilyBold;
+}
+
+.secondary_font() {
+  font-family: @secondaryFontFamily;
+}
+
+.tertiary_font() {
+  font-family: @tertiaryFontFamily;
+}

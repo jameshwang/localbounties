@@ -1,4 +1,4 @@
-class Bounty.BountyList.Models.Bounty extends Backbone.Model
+class Bounty.BountyListApp.Models.Bounty extends Backbone.Model
   
   defaults:
     'title' : 'Untitled'
