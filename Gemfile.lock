@@ -37,6 +37,7 @@ GEM
       jquery-rails
       rails (>= 3.1)
     builder (3.0.4)
+    coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -89,11 +90,16 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.21)
     money (5.1.0)
     multi_json (1.6.1)
     pg (0.14.1)
     polyglot (0.3.3)
+    pry (0.9.10)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.3.1)
     rabl (0.7.9)
       activesupport (>= 2.3.14)
       multi_json (~> 1.0)
@@ -134,6 +140,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    slop (3.3.3)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -173,6 +180,7 @@ DEPENDENCIES
   less-rails
   money
   pg
+  pry
   rabl
   rails (= 3.2.11)
   rspec-rails (~> 2.0)

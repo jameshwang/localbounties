@@ -21,7 +21,6 @@
 
 class Bounty < ActiveRecord::Base
   attr_accessible :description,
-                  :due_date,
                   :duration,
                   :hunter_id,
                   :latitude,
@@ -33,23 +32,53 @@ class Bounty < ActiveRecord::Base
                   :verification_type,
                   :verification
 
-  after_save :update_firebase
+  belongs_to :hunter, :class_name => "User"
+  belongs_to :owner, :class_name => "User"
+
+  before_save :update_due_date
+  after_update :update_firebase
+  after_create :create_firebase
+
+  private
+
+  def update_due_date
+    self.due_date = DateTime.now + duration.to_f.hours
+  end
+
+  def create_firebase
+    require 'firebase'
+    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.push("Bounty-#{id}", { :id => id})
+    Firebase.set("Bounty-#{id}", { :id => id,
+                              :description => description,
+                              :due_date => due_date,
+                              :duration => duration,
+                              :hunter_id => hunter_id,
+                              :latitude => latitude,
+                              :longitude => longitude,
+                              :owner_id => owner_id,
+                              :price => price,
+                              :status => status,
+                              :title => title,
+                              :verification_type => verification_type,
+                              :verification => verification })
+  end
 
   def update_firebase
     require 'firebase'
     Firebase.base_uri = 'https://localbounties.firebaseio.com'
-    Firebase.push("Bounty", { :description => description,
-                             :due_date => due_date,
-                             :duration => duration,
-                             :hunter_id => hunter_id,
-                             :latitude => latitude,
-                             :longitude => longitude,
-                             :owner_id => owner_id,
-                             :price => price,
-                             :status => status,
-                             :title => title,
-                             :verification_type => verification_type,
-                             :verification => verification
-    })
+    Firebase.set("Bounty-#{id}", { :id => id,
+                              :description => description,
+                              :due_date => due_date,
+                              :duration => duration,
+                              :hunter_id => hunter_id,
+                              :latitude => latitude,
+                              :longitude => longitude,
+                              :owner_id => owner_id,
+                              :price => price,
+                              :status => status,
+                              :title => title,
+                              :verification_type => verification_type,
+                              :verification => verification })
   end
 end
