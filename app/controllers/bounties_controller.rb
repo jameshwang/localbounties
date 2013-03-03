@@ -5,13 +5,16 @@ class BountiesController < ApplicationController
 
     @bounties = Bounty.all
 
-    @bounties_with_names.map do |bounty|
-      
+    @bounties_with_names = @bounties.map do |bounty|
+      bounty_json = {}
+      bounty_json = bounty.attributes
+      bounty_json.merge({ owner_name: bounty.owner.try(:name),
+                      hunter_name: bounty.hunter.try(:name) })
     end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bounties }
+      format.json { render json: @bounties_with_names }
     end
   end
 
