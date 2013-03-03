@@ -36,7 +36,8 @@ class Bounty < ActiveRecord::Base
   belongs_to :owner, :class_name => "User"
 
   before_save :update_due_date
-  after_save :update_firebase
+  after_update :update_firebase
+  after_create :create_firebase
 
   private
 
@@ -44,21 +45,40 @@ class Bounty < ActiveRecord::Base
     self.due_date = DateTime.now + duration.to_f.hours
   end
 
+  def create_firebase
+    require 'firebase'
+    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.push("Bounty-#{id}", { :id => id})
+    Firebase.set("Bounty-#{id}", { :id => id,
+                              :description => description,
+                              :due_date => due_date,
+                              :duration => duration,
+                              :hunter_id => hunter_id,
+                              :latitude => latitude,
+                              :longitude => longitude,
+                              :owner_id => owner_id,
+                              :price => price,
+                              :status => status,
+                              :title => title,
+                              :verification_type => verification_type,
+                              :verification => verification })
+  end
+
   def update_firebase
     require 'firebase'
     Firebase.base_uri = 'https://localbounties.firebaseio.com'
-    Firebase.push("Bounty", { :description => description,
-                             :due_date => due_date,
-                             :duration => duration,
-                             :hunter_id => hunter_id,
-                             :latitude => latitude,
-                             :longitude => longitude,
-                             :owner_id => owner_id,
-                             :price => price,
-                             :status => status,
-                             :title => title,
-                             :verification_type => verification_type,
-                             :verification => verification
-    })
+    Firebase.set("Bounty-#{id}", { :id => id,
+                              :description => description,
+                              :due_date => due_date,
+                              :duration => duration,
+                              :hunter_id => hunter_id,
+                              :latitude => latitude,
+                              :longitude => longitude,
+                              :owner_id => owner_id,
+                              :price => price,
+                              :status => status,
+                              :title => title,
+                              :verification_type => verification_type,
+                              :verification => verification })
   end
 end

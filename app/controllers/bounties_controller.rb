@@ -6,7 +6,7 @@ class BountiesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @bounties }
+      # format.json { render json: @bounties }
     end
   end
 
