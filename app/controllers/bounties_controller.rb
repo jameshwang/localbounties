@@ -5,9 +5,13 @@ class BountiesController < ApplicationController
 
     @bounties = Bounty.all
 
+    @bounties_with_names.map do |bounty|
+      
+    end
+
     respond_to do |format|
       format.html # index.html.erb
-      # format.json { render json: @bounties }
+      format.json { render json: @bounties }
     end
   end
 

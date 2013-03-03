@@ -18,7 +18,7 @@ class BountiesControllerTest < ActionController::TestCase
 
   test "should create bounty" do
     assert_difference('Bounty.count') do
-      post :create, bounty: { description: @bounty.description, due_date: @bounty.due_date, duration: @bounty.duration, hunter_id: @bounty.hunter_id, latitude: @bounty.latitude, longitude: @bounty.longitude, owner_id: @bounty.owner_id, price: @bounty.price, status: @bounty.status, title: @bounty.title, verfication_type: @bounty.verfication_type, verification: @bounty.verification }
+      post :create, bounty: { description: @bounty.description, due_date: @bounty.due_date, duration: @bounty.duration, hunter_id: @bounty.hunter_id, latitude: @bounty.latitude, longitude: @bounty.longitude, owner_id: @bounty.owner_id, reward: @bounty.reward, status: @bounty.status, title: @bounty.title, verfication_type: @bounty.verfication_type, verification: @bounty.verification }
     end
 
     assert_redirected_to bounty_path(assigns(:bounty))
@@ -35,7 +35,7 @@ class BountiesControllerTest < ActionController::TestCase
   end
 
   test "should update bounty" do
-    put :update, id: @bounty, bounty: { description: @bounty.description, due_date: @bounty.due_date, duration: @bounty.duration, hunter_id: @bounty.hunter_id, latitude: @bounty.latitude, longitude: @bounty.longitude, owner_id: @bounty.owner_id, price: @bounty.price, status: @bounty.status, title: @bounty.title, verfication_type: @bounty.verfication_type, verification: @bounty.verification }
+    put :update, id: @bounty, bounty: { description: @bounty.description, due_date: @bounty.due_date, duration: @bounty.duration, hunter_id: @bounty.hunter_id, latitude: @bounty.latitude, longitude: @bounty.longitude, owner_id: @bounty.owner_id, reward: @bounty.reward, status: @bounty.status, title: @bounty.title, verfication_type: @bounty.verfication_type, verification: @bounty.verification }
     assert_redirected_to bounty_path(assigns(:bounty))
   end
 
