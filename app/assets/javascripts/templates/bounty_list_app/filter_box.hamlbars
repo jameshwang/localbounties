@@ -1,4 +1,6 @@
 .button.filter-button
   Filter
+.button.add-button
+  Add (to be removed)
 .filter-status
   Showing closest first

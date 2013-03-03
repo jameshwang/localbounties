@@ -48,7 +48,7 @@ class Bounty < ActiveRecord::Base
 
   def create_firebase
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.push("Bounty-#{id}", { :id => id})
+    # Firebase.push("Bounty-#{id}", { :id => id})
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
                               :due_date => due_date,

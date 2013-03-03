@@ -56,16 +56,25 @@
   float: left;
   background: #282828;
   .inner-shadow(0,0,1px,#000);
-  padding-top: 2px;
+}
+
+.bounty-list-item-container {
+  width: @content_width - 2px;
+  height: @bounty_list_item_height;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-bottom: 1px solid #111;
+  background: transparent;
 }
 
 .bounty-list-item {
-  margin: 2px 5px;
-  width: @content_width - 10px;
+  // margin: 2px 5px;
+  // width: @content_width - 10px;
+  width: @content_width - 2px;
   height: @bounty_list_item_height;
   background: #fff;
   float: left;
-  .rounded(3px);
+  // .rounded(3px);
   position: relative;
   cursor: pointer;
 
@@ -183,6 +192,24 @@
     color: #fff;
     position: absolute;
     left: 4px;
+    top: 4px;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .add-button {
+    width: 180px;
+    height: 21px;
+    padding-top: 3px;
+    border: 1px solid #111;
+    background: #3c3c3c;
+    .rounded(2px);
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    right: 4px;
     top: 4px;
     font-size: 12px;
     line-height: 18px;

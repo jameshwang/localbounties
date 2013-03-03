@@ -7,7 +7,8 @@ Bounty.BountyListApp =
   Routers: {}
 
   init: (options) ->
-    @bounty_collection = new Bounty.BountyListApp.Collections.Bounties(options.bounties)
+    @firebase_url = options.firebase_url
+    @bounty_collection = new Bounty.BountyListApp.Collections.Bounties()
 
     @vent = _.extend({}, Backbone.Events, cid: "dispatcher")  
     @router = new Bounty.BountyListApp.Routers.Main()

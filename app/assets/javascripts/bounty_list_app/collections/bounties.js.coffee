@@ -1,7 +1,6 @@
-class Bounty.BountyListApp.Collections.Bounties extends Backbone.Collection
+class Bounty.BountyListApp.Collections.Bounties extends Backbone.Firebase.Collection
 
   model: Bounty.BountyListApp.Models.Bounty
 
-  url: ->
-    # need to eventually specify a url here... from firebase?
-    return ''
+  firebase: ->
+    Bounty.BountyListApp.firebase_url

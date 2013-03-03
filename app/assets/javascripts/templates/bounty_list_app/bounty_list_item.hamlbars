@@ -1,11 +1,13 @@
-.reward
-.title
-  {{title}}
-.description
-  {{description}}
-.distance
-  {{distance}} miles away
-.issued-time
-  {{minutes_since_issued}} min ago
-.arrow-box
-  .arrow
+.bounty-list-item
+  .content
+    .reward
+    .title
+      {{title}}
+    .description
+      {{description}}
+    .distance
+      {{distance}} miles away
+    .issued-time
+      {{minutes_since_issued}} min ago
+    .arrow-box
+      .arrow
