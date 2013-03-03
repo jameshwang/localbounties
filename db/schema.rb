@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303010911) do
+ActiveRecord::Schema.define(:version => 20130303031110) do
+
+  create_table "bounties", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "hunter_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "due_date"
+    t.string   "duration"
+    t.integer  "price"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "verification"
+    t.string   "verification_type"
+    t.string   "status"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "tests", :force => true do |t|
     t.string   "name"

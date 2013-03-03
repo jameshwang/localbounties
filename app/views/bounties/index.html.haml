@@ -1,0 +1,41 @@
+%h1 Listing bounties
+
+%table
+  %tr
+    %th Owner
+    %th Hunter
+    %th Title
+    %th Description
+    %th Due date
+    %th Duration
+    %th Price
+    %th Latitude
+    %th Longitude
+    %th Verification
+    %th Verfication type
+    %th Status
+    %th
+    %th
+    %th
+
+  - @bounties.each do |bounty|
+    %tr
+      %td= bounty.owner_id
+      %td= bounty.hunter_id
+      %td= bounty.title
+      %td= bounty.description
+      %td= bounty.due_date
+      %td= bounty.duration
+      %td= bounty.price
+      %td= bounty.latitude
+      %td= bounty.longitude
+      %td= bounty.verification
+      %td= bounty.verfication_type
+      %td= bounty.status
+      %td= link_to 'Show', bounty
+      %td= link_to 'Edit', edit_bounty_path(bounty)
+      %td= link_to 'Destroy', bounty, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Bounty', new_bounty_path

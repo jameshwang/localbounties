@@ -1,4 +1,7 @@
 Localbounties::Application.routes.draw do
+  resources :bounties
+
+
   resources :tests
 
 

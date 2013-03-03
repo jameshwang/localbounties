@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  owner_id: 1
+  hunter_id: 1
+  title: MyString
+  description: MyText
+  due_date: 2013-03-02 19:11:10
+  duration: MyString
+  price: 1
+  latitude: 1.5
+  longitude: 1.5
+  verification: MyText
+  verfication_type: MyString
+  status: MyString
+
+two:
+  owner_id: 1
+  hunter_id: 1
+  title: MyString
+  description: MyText
+  due_date: 2013-03-02 19:11:10
+  duration: MyString
+  price: 1
+  latitude: 1.5
+  longitude: 1.5
+  verification: MyText
+  verfication_type: MyString
+  status: MyString
