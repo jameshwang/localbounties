@@ -7,4 +7,3 @@
 // = require backbone_csrf_token
 
 //= require handlebars
-//= require_tree ../../templates/shared
