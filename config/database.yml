@@ -2,14 +2,14 @@ development:
   adapter: postgresql
   encoding: utf8
   database: localbounties_dev
-  username: james
+  username: connorwarnock
   host: localhost
 
 test: &defaults
   adapter: postgresql
   encoding: utf8
   database: localbounties_test
-  username: james
+  username: connorwarnock
   host: localhost
 
 # up to heroku to figure out the production
@@ -17,5 +17,5 @@ production: &defaults
   adapter: postgresql
   encoding: utf8
   database: localbounties_production
-  username: james
+  username: connorwarnock
   host: localhost

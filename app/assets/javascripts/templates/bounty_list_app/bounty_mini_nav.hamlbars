@@ -1,0 +1,6 @@
+.nav-item.available.active
+  Available
+.nav-item.in-progress
+  In progress
+.nav-item.completed
+  Completed

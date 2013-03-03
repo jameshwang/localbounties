@@ -1,0 +1,6 @@
+.dollar-sign
+  $
+.dollar-amount
+  {{ dollar_amount reward }}
+.cents-amount
+  {{ cents_amount reward }}

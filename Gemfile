@@ -29,6 +29,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'sht_rails'
+
 gem 'jquery-rails'
 
 gem 'money'

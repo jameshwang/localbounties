@@ -3,9 +3,9 @@
 - content_for :content do
   = render :partial => 'shared/header'
   .container.body-container
-    #bounty-side-nav.bounty-side-nav
+    %ul#side-nav.side-nav
     #bounty-content-box.bounty-content-box
-      #bounty-mini-nav.bounty-mini-nav
+      #bounty-mini-nav-container.bounty-mini-nav-container
       #bounty-sub-content.bounty-sub-content
 
   =yield
@@ -15,6 +15,42 @@
     $(function () {
       Bounty.BountyListApp.init({
         bounties: [
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
+          {
+            title: 'Walk my dog',
+            description: 'Take him around the block'
+          },
           {
             title: 'Walk my dog',
             description: 'Take him around the block'

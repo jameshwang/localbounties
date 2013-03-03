@@ -1,0 +1,8 @@
+%li.side-nav-item.active
+  All bounties
+%li.side-nav-item
+  My issued bounties
+%li.side-nav-item
+  My account
+%li.side-nav-item
+  Sign out
