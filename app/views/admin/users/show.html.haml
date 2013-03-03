@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user.name
+%p
+  %b User Pic:
+  = @user.user_pic
+%p
+  %b Stripe Id:
+  = @user.stripe_id
+%p
+  %b Stripe Token:
+  = @user.stripe_tok
+%p
+  %b City:
+  = @user.city
+%p
+  %b Status:
+  = @user.status
+
+= link_to 'Edit', edit_admin_user_path(@user)
+\|
+= link_to 'Back', admin_users_path
