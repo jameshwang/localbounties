@@ -1,0 +1,11 @@
+=javascript 'bounty_list_app'
+=stylesheet 'bounty_list_app'
+
+- content_for :content do
+  =yield
+  :javascript
+    $(function () {
+      Bravo.Dash.init()
+    });
+
+= render :template => 'layouts/application'

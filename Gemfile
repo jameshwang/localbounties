@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'thin'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-  gem 'sqlite3'
+group :development, :test do
+  gem 'pg'
 end
 
 group :production do
-  gem 'mysql2'
+  gem 'pg'
 end
 
 
@@ -22,11 +23,6 @@ group :assets do
   gem 'backbone-on-rails'
   gem 'jquery-rails'
   gem 'handlebars_assets', '>= 0.7.0'
-
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 

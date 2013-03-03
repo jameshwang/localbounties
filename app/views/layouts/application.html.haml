@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title ApperitifApp
+    %meta{:charset => "utf-8"}
+      = stylesheet_link_tag    "application", :media => "all"
+      = javascript_include_tag "application"
+      = yield :javascript
+      = yield :stylesheet
+      = yield :meta_tag
+      = yield :head
+      = csrf_meta_tags
+  %body
+    = content_for?(:content) ? yield(:content) : yield
+    = content_for?(:scripts) ? yield(:scripts) : nil
