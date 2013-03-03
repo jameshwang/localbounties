@@ -21,7 +21,6 @@
 
 class Bounty < ActiveRecord::Base
   attr_accessible :description,
-                  :due_date,
                   :duration,
                   :hunter_id,
                   :latitude,
@@ -33,7 +32,14 @@ class Bounty < ActiveRecord::Base
                   :verification_type,
                   :verification
 
+  before_save :update_due_date
   after_save :update_firebase
+
+  private
+
+  def update_due_date
+    self.due_date = DateTime.now + duration.to_f.hours
+  end
 
   def update_firebase
     require 'firebase'
