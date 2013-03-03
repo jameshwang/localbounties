@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<title>Test GeoLocation</title>
+    <style type="text/css">
+      html { height: 100%; }
+      body { height: 100%; margin: 0; padding: 0; }
+      #mapholder { height: 100%;}
+    </style>
+	</head>
+
+	<body>
+		<div id="geo-location"></div>
+		<div id="mapholder" style="height: 100%; width: 100%"></div>
+
+		<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA03gfazIRhSgMVUNAuh4_VDMhuDcZtS-s&sensor=true"></script>
+		<script>
+			// var myDataReference = new Firebase('https://localbounties.firebaseio.com/');
+
+			var getLocation = function () {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+				} else {
+					x.html("Geolocation is not supported by this browser.");
+				}
+			};
+
+			var showPosition = function (position) {
+				lat = position.coords.latitude;
+				lon = position.coords.longitude;
+
+				//
+				// GOOGLEMAPS CODE
+				//
+			  latlon = new google.maps.LatLng(lat, lon);
+
+			  mapholder = document.getElementById('mapholder');
+			  // TODO - use this to size the google map
+			  // mapholder.style.height = '500px';
+			  // mapholder.style.width = '400px';
+
+			  var myOptions = {
+				  center: latlon,
+				  zoom: 14,
+				  mapTypeId: google.maps.MapTypeId.ROADMAP,
+				  mapTypeControl: false,
+				  navigationControlOptions: {
+				  	style: google.maps.NavigationControlStyle.SMALL
+				  }
+			  };
+			  map = new google.maps.Map(mapholder,myOptions);
+			  var marker = new google.maps.Marker({
+			  	position: latlon,
+			  	map: map,
+			  	title: "You are here!"
+			  });
+
+			  // Create 20 random places around the current location
+			  var mapDots = [];
+			  for (var i = 0; i < 20; i++) {
+			  	var maxDistance = 0.02;
+			  	var tmpLon = lon + (maxDistance * Math.random()) - (maxDistance / 2)
+			  		, tmpLat = lat + (maxDistance * Math.random()) - (maxDistance / 2);
+
+			  	mapDots[i] = {title: "hello", lon: tmpLon, lat: tmpLat};
+			  };
+
+			  // Mark these locations
+			  $.each(mapDots, function (index, value) {
+			  	latlon = new google.maps.LatLng(value.lat, value.lon);
+
+			  	new google.maps.Marker({
+			  		position: latlon,
+			  		map: map,
+			      icon: 'icon.png',
+			  		title: value.title
+			  	});
+			  });
+			};
+			getLocation();
+		</script>
+	</body>
+</html>

@@ -33,5 +33,5 @@ gem "american_date"
 
 gem 'backbone-on-rails'
 gem 'haml-rails'
-
+gem 'firebase'
 gem 'rabl'

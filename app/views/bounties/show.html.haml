@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Owner:
+  = @bounty.owner_id
+%p
+  %b Hunter:
+  = @bounty.hunter_id
+%p
+  %b Title:
+  = @bounty.title
+%p
+  %b Description:
+  = @bounty.description
+%p
+  %b Due date:
+  = @bounty.due_date
+%p
+  %b Duration:
+  = @bounty.duration
+%p
+  %b Price:
+  = @bounty.price
+%p
+  %b Latitude:
+  = @bounty.latitude
+%p
+  %b Longitude:
+  = @bounty.longitude
+%p
+  %b Verification:
+  = @bounty.verification
+%p
+  %b Verfication type:
+  = @bounty.verification_type
+%p
+  %b Status:
+  = @bounty.status
+
+= link_to 'Edit', edit_bounty_path(@bounty)
+\|
+= link_to 'Back', bounties_path
