@@ -9,7 +9,7 @@
 #  description       :text
 #  due_date          :datetime
 #  duration          :string(255)
-#  price             :integer
+#  reward             :integer
 #  latitude          :float
 #  longitude         :float
 #  verification      :text
@@ -26,7 +26,7 @@ class Bounty < ActiveRecord::Base
                   :latitude,
                   :longitude,
                   :owner_id,
-                  :price,
+                  :reward,
                   :status,
                   :title,
                   :verification_type,
@@ -47,7 +47,7 @@ class Bounty < ActiveRecord::Base
 
   def create_firebase
     require 'firebase'
-    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.push("Bounty-#{id}", { :id => id})
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
@@ -57,7 +57,7 @@ class Bounty < ActiveRecord::Base
                               :latitude => latitude,
                               :longitude => longitude,
                               :owner_id => owner_id,
-                              :price => price,
+                              :reward => reward,
                               :status => status,
                               :title => title,
                               :verification_type => verification_type,
@@ -66,7 +66,7 @@ class Bounty < ActiveRecord::Base
 
   def update_firebase
     require 'firebase'
-    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
                               :due_date => due_date,
@@ -75,7 +75,7 @@ class Bounty < ActiveRecord::Base
                               :latitude => latitude,
                               :longitude => longitude,
                               :owner_id => owner_id,
-                              :price => price,
+                              :reward => reward,
                               :status => status,
                               :title => title,
                               :verification_type => verification_type,

@@ -166,6 +166,10 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (2.2.4)
+      actionpack (>= 3.1)
+      execjs
+      railties (>= 3.1)
     typhoeus (0.6.1)
       ethon (~> 0.5.9)
     tzinfo (0.3.35)
@@ -195,4 +199,5 @@ DEPENDENCIES
   sht_rails
   therubyracer
   thin
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)

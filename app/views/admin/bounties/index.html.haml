@@ -1,6 +1,6 @@
-%h1 Listing bounties
+%h1 Listing bounties2
 
-%table
+%table.table
   %tr
     %th Owner
     %th Hunter
@@ -8,7 +8,7 @@
     %th Description
     %th Due date
     %th Duration
-    %th Price
+    %th Reward
     %th Latitude
     %th Longitude
     %th Verification
@@ -32,10 +32,10 @@
       %td= bounty.verification
       %td= bounty.verification_type
       %td= bounty.status
-      %td= link_to 'Show', bounty
-      %td= link_to 'Edit', edit_bounty_path(bounty)
-      %td= link_to 'Destroy', bounty, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', admin_bounty_path(bounty)
+      %td= link_to 'Edit', edit_admin_bounty_path(bounty)
+      %td= link_to 'Destroy', [:admin,bounty], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Bounty', new_bounty_path
+= link_to 'New Bounty', new_admin_bounty_path

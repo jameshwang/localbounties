@@ -1,4 +1,4 @@
-= form_for @bounty do |f|
+= form_for [:admin, @bounty] do |f|
   - if @bounty.errors.any?
     #error_explanation
       %h2= "#{pluralize(@bounty.errors.count, "error")} prohibited this bounty from being saved:"
