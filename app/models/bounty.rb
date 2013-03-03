@@ -47,7 +47,7 @@ class Bounty < ActiveRecord::Base
 
   def create_firebase
     require 'firebase'
-    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.push("Bounty-#{id}", { :id => id})
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
@@ -66,7 +66,7 @@ class Bounty < ActiveRecord::Base
 
   def update_firebase
     require 'firebase'
-    Firebase.base_uri = 'https://localbounties.firebaseio.com'
+    Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.set("Bounty-#{id}", { :id => id,
                               :description => description,
                               :due_date => due_date,
