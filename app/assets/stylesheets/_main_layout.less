@@ -35,7 +35,9 @@ body {
   line-height: 30px;
   .primary_font_bold();
   padding: 8px 0;
-  float: left;
+  position: absolute;
+  left: 5px;
+  top: 0px;
 }
 
 .header-wrapper {
@@ -55,7 +57,9 @@ body {
 
 .user-box {
   height: 50px;
-  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
 
   .name {
     float: left;
@@ -72,4 +76,21 @@ body {
     .rounded(25px);
     background: #fafafa;
   }
+}
+
+.login-button {
+  font-size: 13px;
+  line-height: 18px;
+  background: #3B5998;
+  .rounded(3px);
+  width: 180px;
+  padding-top: 10px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  text-align: center;
+  .primary_font_bold();
+  color: #fff;
+  text-decoration: none;
 }

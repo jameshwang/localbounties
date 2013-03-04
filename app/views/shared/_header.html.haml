@@ -5,13 +5,12 @@
 
     .user-box
       - if current_user
-        signed in: 
-        =current_user.email
+        .name
+          =current_user.name
+        .avatar
+          =image_tag ''
         =link_to 'Logout', destroy_user_session_path, :method => :delete 
       -else
-        =link_to 'Login', new_user_session_path
-        =link_to "Log in with Facebook", "/auth/facebook"
-      .name
-        Connor W.
-      .avatar
+        =link_to "Login with Facebook", "/auth/facebook", { :class => 'login-button' }
+      
       
