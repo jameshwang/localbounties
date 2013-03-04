@@ -43,7 +43,9 @@ class User < ActiveRecord::Base
                   :stripe_tok, 
                   :user_pic,
                   :firebase_token,
-                  :avatar
+                  :avatar,
+                  :total_earned,
+                  :total_owed
 
   has_many :owned_bounties, :class_name => "Bounty", :foreign_key => "owner_id"
   has_many :hunted_bounties, :class_name => "Bounty", :foreign_key => "hunter_id"
