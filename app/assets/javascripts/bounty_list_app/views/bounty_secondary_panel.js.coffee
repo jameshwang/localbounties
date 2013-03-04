@@ -9,5 +9,5 @@ Bounty.BountyListApp.Views.BountySecondaryPanel = Support.CompositeView.extend
   showSingleBounty: (options) ->
     @single_view = new Bounty.BountyListApp.Views.BountySingle({model: options.model})
     @renderChild(@single_view)
-    $('#bounty-secondary-panel').html(@single_view.el)
+    # $('#bounty-secondary-panel').html(@single_view.el)
     @$el.html(@single_view.el)

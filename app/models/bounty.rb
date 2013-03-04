@@ -74,9 +74,9 @@ class Bounty < ActiveRecord::Base
     end
   end
 
-  # POST bounties/:bounty_id/claim
-  # bounties_controller#claim
-  def claim(user)
+  # POST bounties/:bounty_id/accept
+  # bounties_controller#accept
+  def accept(user)
     # update rails status attribute
     update_attribute(:status, 'in_progress')
     update_attribute(:hunter_id, user.id)

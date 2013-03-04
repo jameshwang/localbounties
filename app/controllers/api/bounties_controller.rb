@@ -57,13 +57,13 @@ module Api
       end
     end
 
-    # POST /bounties/1/claim
-    def claim
+    # POST /bounties/1/accept
+    def accept
       @bounty = Bounty.find(params[:id])
-      hunter = User.find(params[:hunter_id])
+      hunter = current_user
 
-      if @bounty.claim(hunter)
-        head :no_content
+      if @bounty.accept(hunter)
+        render json: @bounty.to_json
       else
         render json: @bounty.errors, status: :unprocessable_entity
       end
