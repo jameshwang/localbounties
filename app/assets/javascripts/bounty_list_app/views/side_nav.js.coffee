@@ -12,10 +12,10 @@ Bounty.BountyListApp.Views.SideNav = Support.CompositeView.extend
     @$el.html(@template())
 
   select: (e) ->
-    if e?
+    if e? && $(e.target).attr('id') != 4
       e.preventDefault()
-
-    target = $(e).attr('id')
+    console.log('go')
+    target = $(e.target).attr('id')
 
     switch target
       when '1'
@@ -26,5 +26,5 @@ Bounty.BountyListApp.Views.SideNav = Support.CompositeView.extend
         event = 'show-my-account'
       when '4'
         event = 'show-sign-out'
-    Bounty.BountyListApp.vent.trigger('content-panel:' + event)
-
+    console.log(event)
+    # Bounty.BountyListApp.vent.trigger('content-panel:' + event)

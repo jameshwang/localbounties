@@ -455,6 +455,20 @@
     float: left;
     background: #333;
     color: #eee;
+    position: relative;
+
+    .top-arrow {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      margin-left: 3px;
+      width: 0; 
+      height: 0; 
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      
+      border-bottom: 6px solid #333;
+    }
 
     .top-section {
       width: @secondary_panel_width;
@@ -468,14 +482,28 @@
       margin-top: 10px;
       margin-left: 10px;
       width: 160px;
-      height: 60px;
       background: #252525;
       float: left;
       .rounded(3px);
       text-align: center;
-      font-size: 14px;
       line-height: 22px;
       .primary_font_bold();
+      font-size: 20px;
+      padding-top: 20px;
+      height: 50px;
+    }
+
+    .verification-description-header {
+      font-size: 12px;
+      line-height: 18px;
+      color: #eee;
+      .primary_font_bold();
+      width: 100%;
+      float: left;
+
+      padding: 10px;
+      margin-top: 10px;
+      text-transform: uppercase;
     }
 
     .warning-box {
@@ -493,7 +521,6 @@
       width: @secondary_panel_width;
       float: left;
       position: relative;
-      height: 100px;
     }
 
     .button-section {
@@ -501,7 +528,7 @@
       float: left;
       position: relative;
       height: 70px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .verification-message {

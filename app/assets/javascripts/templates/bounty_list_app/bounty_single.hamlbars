@@ -7,12 +7,16 @@
     %button.button-accept
       Accept this bounty
   .completion-box.hidden
+    .top-arrow
     .top-section
       .countdown-box
-        123
       .warning-box
         You have a limited time to complete this bounty.  If time runs out, the bounty becomes available again.
     .bottom-section
+      .verification-description-header
+        How to verify:
+      .verification-description
+        {{verification_description}}
       %textarea{:class => 'verification-message'}
     .button-section
       %button.big-button.button-complete

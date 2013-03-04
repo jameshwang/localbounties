@@ -19,7 +19,7 @@ Bounty.BountyListApp.Views.NewBounty = Support.CompositeView.extend
     data.title = @$el.find('#title').val()
     data.description = @$el.find('#description').val()
     data.verification = @$el.find('#verification-process').val()
-    data.reward = @$el.find('#reward').val()
+    data.reward = parseInt(@$el.find('#reward').val()) * 100
     data.duration = @$el.find('#duration').val()
 
     @model = new Bounty.BountyListApp.Models.Bounty(data)

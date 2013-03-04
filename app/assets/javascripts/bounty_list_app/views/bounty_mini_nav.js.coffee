@@ -11,6 +11,34 @@ Bounty.BountyListApp.Views.BountyMiniNav = Support.CompositeView.extend
     @active_nav_item = '1'
     @in_progress_count = 0
 
+    # @listenToBountyHunterEvents()
+
+  # listenToBase: ->
+    # @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-hunter', @showBountyHunter)
+    # @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-issuer', @showBountyIssuer)
+
+  # listenToBountyIssuerEvents: ->
+  #   @stopListening()
+  #   @listenToBase()
+
+  #   @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-available', @showAvailable)
+  #   @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-in-progress', @showInProgress)
+  #   @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-completed', @showCompleted)
+
+  #   @listenTo(Bounty.BountyListApp.in_progress_issued_bounties_collection, 'add', @updateInProgressCount)
+  #   @listenTo(Bounty.BountyListApp.in_progress_issued_bounties_collection, 'remove', @updateInProgressCount)
+
+  #   @listenTo(Bounty.BountyListApp.in_progress_issued_bounties_collection, 'add', @updateInProgressCount)
+  #   @listenTo(Bounty.BountyListApp.in_progress_issued_bounties_collection, 'remove', @updateInProgressCount)
+
+  #   @listenTo(Bounty.BountyListApp.available_issued_bounties_collection, 'add', @showIncrementOfAvailable)
+  #   @listenTo(Bounty.BountyListApp.in_progress_issued_bounties_collection, 'add', @showIncrementOfInProgress)
+  #   @listenTo(Bounty.BountyListApp.completed_issued_bounties_collection, 'add', @showIncrementOfCompleted)
+
+  # listenToBountyHunterEvents: ->
+    # @stopListening()
+    # @listenToBase()
+
     @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-available', @showAvailable)
     @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-in-progress', @showInProgress)
     @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-completed', @showCompleted)
@@ -18,9 +46,22 @@ Bounty.BountyListApp.Views.BountyMiniNav = Support.CompositeView.extend
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'add', @updateInProgressCount)
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'remove', @updateInProgressCount)
 
+    @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'add', @updateInProgressCount)
+    @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'remove', @updateInProgressCount)
+
     @listenTo(Bounty.BountyListApp.available_bounties_collection, 'add', @showIncrementOfAvailable)
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'add', @showIncrementOfInProgress)
     @listenTo(Bounty.BountyListApp.completed_bounties_collection, 'add', @showIncrementOfCompleted)
+
+  # showBountyHunter: ->
+  #   @listenToBountyHunterEvents()
+  #   @use_issuer_template = false
+  #   @render()
+
+  # showBountyIssuer: ->
+  #   @listenToBountyIssuerEvents()
+  #   @use_issuer_template = true
+  #   @render()
 
   showAvailable: ->
     @selectNavItem({ value: '1'})

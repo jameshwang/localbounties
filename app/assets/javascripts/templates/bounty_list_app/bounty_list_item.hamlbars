@@ -6,7 +6,7 @@
     .description
       {{description}}
     .distance
-      {{distance}} miles away
+      
     .issued-time
       {{minutes_since_issued}} min ago
     .arrow-box

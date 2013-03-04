@@ -22,15 +22,15 @@
 
 .field-box
   %label
-    Reward
+    Reward (in cents)
   .field
-    %input{ :type => 'text', :class => 'short', :placeholder => '1.00', :id => 'reward'}
+    %input{ :type => 'text', :class => 'short', :placeholder => '100', :id => 'reward', :value => '300'}
 
 .field-box
   %label
-    Amount of time to complete
+    Amount of time to complete (in minutes)
   .field
-    %input{ :type => 'text', :class => 'short', :placeholder => '10 minutes', :id => 'duration'}
+    %input{ :type => 'text', :class => 'short', :placeholder => '10 minutes', :id => 'duration', :value => '5'}
 
 .field-box
   %label
