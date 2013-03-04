@@ -10,3 +10,4 @@
 //= require backbone-firebase
 
 //= require handlebars
+//= require jquery.countdown.min
