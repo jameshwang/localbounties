@@ -140,7 +140,8 @@ class Bounty < ActiveRecord::Base
         :title => title,
         :verification_type => verification_type,
         :verification => verification,
-        :accepted_at => accepted_at
+        :accepted_at => accepted_at,
+        :created_at => created_at
     }
 
     unless owner.nil?
