@@ -46,5 +46,50 @@ module Api
 
       head :no_content
     end
+
+    def available
+      @bounty = Bounty.find(params[:id])
+
+      if @bounty.available
+        head :no_content
+      else
+        render json: @bounty.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /bounties/1/claim
+    def claim
+      @bounty = Bounty.find(params[:id])
+      hunter = User.find(params[:hunter_id])
+
+      if @bounty.claim(hunter)
+        head :no_content
+      else
+        render json: @bounty.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /bounties/1/complete
+    def complete
+      @bounty = Bounty.find(params[:id])
+      hunter = User.find(params[:hunter_id])
+
+      if @bounty.complete(hunter)
+        head :no_content
+      else
+        render json: @bounty.errors, status: :unprocessable_entity
+      end
+    end
+
+    # POST /bounties/1/reset
+    def reset
+      @bounty = Bounty.find(params[:id])
+
+      if @bounty.reset_status
+        head :no_content
+      else
+        render json: @bounty.errors, status: :unprocessable_entity
+      end
+    end
   end
 end
