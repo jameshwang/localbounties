@@ -1,9 +1,7 @@
-.button.filter-button
-  Filter
+/.button.filter-button
+/  Filter
 .button-container
-  .button.add-button
-    +
   .button.button-map
-    Map
+    Toggle map
 .filter-status
-  Showing closest first
+  Showing most recent first

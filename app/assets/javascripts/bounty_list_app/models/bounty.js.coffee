@@ -16,13 +16,14 @@ class Bounty.BountyListApp.Models.Bounty extends Backbone.Model
       success: (data, textStatus, jqXHR) ->
         success_callback.call()
 
-  verify: () ->
+  verify: (success_callback) ->
     _this = @
     $.ajax '/api/bounties/' + @get('id') + '/complete',
       type: 'POST'
       dataType: 'json'
       error: (jqXHR, textStatus, errorThrown) ->
       success: (data, textStatus, jqXHR) ->
+        success_callback.call()
 
   url: ->
     if @isNew()

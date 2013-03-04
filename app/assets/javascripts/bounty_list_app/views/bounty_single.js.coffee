@@ -22,6 +22,7 @@ Bounty.BountyListApp.Views.BountySingle = Support.CompositeView.extend
   accept: ->
     # if @model.get('status') == 'in_progress'
     @$el.find('.button-accept').html('Bounty accepted!')
+    Bounty.BountyListApp.vent.trigger('mini-nav:show-in-progress')
 
     callback = () ->
       Bounty.BountyListApp.vent.trigger('secondary-panel:show-recent-in-progress')
@@ -32,5 +33,9 @@ Bounty.BountyListApp.Views.BountySingle = Support.CompositeView.extend
     )
 
   verify: ->
-    console.log('verify')
-    @model.verify()
+    Bounty.BountyListApp.vent.trigger('mini-nav:show-completed')
+    
+    callback = () ->
+      Bounty.BountyListApp.vent.trigger('secondary-panel:show-recent-completed')
+      
+    @model.verify(callback)

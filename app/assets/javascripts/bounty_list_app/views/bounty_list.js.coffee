@@ -23,9 +23,6 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     @listenTo(Bounty.BountyListApp.vent, 'bounty-list:show-bounty-map', @showBountyMap)
     @listenTo(Bounty.BountyListApp.vent, 'bounty-list:hide-bounty-map', @hideBountyMap)
     
-    # to be deleted
-    @listenTo(Bounty.BountyListApp.vent, 'bounty-list:add', _.bind(@addNewListItem, @))
-
   unbindEvents: ->
     @stopListening(@collection)
 
@@ -67,9 +64,6 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     @collection = Bounty.BountyListApp.completed_bounties_collection
     @bindEvents()
     @renderListItems()
-
-  addNewListItem: ->
-    @collection.add({ title: 'Sample item' })
 
   addListItem: (model) ->
     list_item_view = new Bounty.BountyListApp.Views.BountyListItem(model: model)

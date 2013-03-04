@@ -11,6 +11,10 @@ Bounty.BountyListApp.Views.BountyMiniNav = Support.CompositeView.extend
     @active_nav_item = '1'
     @in_progress_count = 0
 
+    @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-available', @showAvailable)
+    @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-in-progress', @showInProgress)
+    @listenTo(Bounty.BountyListApp.vent, 'mini-nav:show-completed', @showCompleted)
+
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'add', @updateInProgressCount)
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'remove', @updateInProgressCount)
 
@@ -18,30 +22,38 @@ Bounty.BountyListApp.Views.BountyMiniNav = Support.CompositeView.extend
     @listenTo(Bounty.BountyListApp.in_progress_bounties_collection, 'add', @showIncrementOfInProgress)
     @listenTo(Bounty.BountyListApp.completed_bounties_collection, 'add', @showIncrementOfCompleted)
 
+  showAvailable: ->
+    @selectNavItem({ value: '1'})
+
+  showInProgress: ->
+    @selectNavItem({ value: '2'})
+
+  showCompleted: ->
+    @selectNavItem({ value: '3'})
+
   updateInProgressCount: ->
     @in_progress_count = Bounty.BountyListApp.in_progress_bounties_collection.length
-    console.log(@in_progress_count)
     @render()
 
   showIncrementOfAvailable: ->
     count_box = @$el.find('#1 .plus-one')
 
     count_box.fadeIn(100, () ->
-      count_box.delay(200).fadeOut(100)
+      count_box.delay(500).fadeOut(100)
     )
 
   showIncrementOfInProgress: ->
     count_box = @$el.find('#2 .plus-one')
 
     count_box.fadeIn(100, () ->
-      count_box.delay(200).fadeOut(100)
+      count_box.delay(500).fadeOut(100)
     )
 
   showIncrementOfCompleted: ->
     count_box = @$el.find('#3 .plus-one')
 
     count_box.fadeIn(100, () ->
-      count_box.delay(200).fadeOut(100)
+      count_box.delay(500).fadeOut(100)
     )
 
   render: ->
@@ -51,8 +63,11 @@ Bounty.BountyListApp.Views.BountyMiniNav = Support.CompositeView.extend
     @$el.find('#' + @active_nav_item).addClass("active")
     @$el
 
-  selectNavItem: (e) ->
-    @active_nav_item = $(e.target).attr('id')
+  selectNavItem: (options) ->
+    if options.target?
+      @active_nav_item = $(options.target).attr('id')
+    else
+      @active_nav_item = options.value
     @render()
 
     # trigger the event

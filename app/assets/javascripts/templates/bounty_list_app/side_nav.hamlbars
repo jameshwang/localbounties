@@ -1,7 +1,7 @@
 %li.side-nav-item.active
-  All bounties
+  Bounty Hunter
 %li.side-nav-item
-  My issued bounties
+  Bounty Issuer
 %li.side-nav-item
   My account
 %li.side-nav-item

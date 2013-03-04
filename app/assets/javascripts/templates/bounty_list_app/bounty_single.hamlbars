@@ -7,8 +7,13 @@
     %button.button-accept
       Accept this bounty
   .verification-box.hidden
-    Additional info here
-    %button.verify-button
+    .top-section
+      .countdown-box
+        123
+      .warning-box
+    .bottom-section
+      %textarea{:class => 'verification-textarea'}
+    %button.big-button.verify-button
       Verify
 .bottom-info
   .section.owner-section

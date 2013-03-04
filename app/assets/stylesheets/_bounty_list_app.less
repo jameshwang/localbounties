@@ -268,7 +268,7 @@
 
   .filter-status {
     position: absolute;
-    left: 140px;
+    left: 10px;
     top: 8px;
     display: block;
     font-size: 12px;
@@ -448,11 +448,61 @@
   }
 
   .verification-box {
-    height: 70px;
+    height: 220px;
     width: @secondary_panel_width;
     .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
     float: left;
     background: #333;
+    color: #eee;
+
+    .top-section {
+      width: @secondary_panel_width;
+      float: left;
+      height: 70px;
+      position: relative;
+    }
+
+    .countdown-box {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 160px;
+      height: 60px;
+      background: #252525;
+      float: left;
+      .rounded(3px);
+      text-align: center;
+      font-size: 14px;
+      line-height: 22px;
+      .primary_font_bold();
+    }
+
+    .warning-box {
+      width: @secondary_panel_width - 160px;
+      float: left;
+    }
+
+    .bottom-section {
+      width: @secondary_panel_width;
+      float: left;
+      height: 100px;
+    }
+
+    .verification-textarea {
+      padding: 10px;
+      .rounded(3px);
+      outline: none;
+      border: 1px solid #1d1d1d;
+      float: left;
+      min-height: 70px;
+      width: @secondary_panel_width - 20px - 2px - 20px;
+      margin: 10px;
+      background: #202020;
+      color: #eee;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
   }
 
   .button-accept {
