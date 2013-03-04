@@ -41,7 +41,8 @@ class User < ActiveRecord::Base
                   :stripe_id, 
                   :stripe_tok, 
                   :user_pic,
-                  :firebase_token
+                  :firebase_token,
+                  :avatar
 
   has_many :owned_bounties, :class_name => "Bounty", :foreign_key => "owner_id"
   has_many :hunted_bounties, :class_name => "Bounty", :foreign_key => "hunter_id"
@@ -52,9 +53,11 @@ class User < ActiveRecord::Base
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.info.name
+      user.name = auth.info.first_name 
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.email = auth.info.email
+      user.avatar = auth.info.image
       user.save!
     end
   end
