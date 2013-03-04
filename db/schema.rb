@@ -63,8 +63,7 @@ ActiveRecord::Schema.define(:version => 20130304193524) do
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
     t.string   "avatar"
-    t.integer  "total_earned"
-    t.integer  "total_owed"
+    t.integer  "balance"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

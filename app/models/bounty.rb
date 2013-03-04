@@ -64,6 +64,11 @@ class Bounty < ActiveRecord::Base
   before_save :update_due_date
   # after_update :update_firebase
   after_create :make_available
+  before_save :default_values
+
+  def default_values
+    self.duration ||= 5
+  end
 
   def make_available
     update_attribute(:status, 'available')
@@ -102,7 +107,6 @@ class Bounty < ActiveRecord::Base
     update_attribute(:status, 'completed')
     update_attribute(:verification_message, 'verification_message')
 
-
     # update firebase
     # remove the owner and hunter in progress bounties
     firebase_delete_by_user(hunter.firebase_token, "in-progress")
@@ -113,6 +117,26 @@ class Bounty < ActiveRecord::Base
 
     #create new issued-bounty for hunter completed
     firebase_add_by_user(owner.firebase_token, "completed-issued")
+  end
+
+  def close
+    if (owner.balance < reward)
+      raise "Insufficient balance for bounty"
+    end
+
+    update_attribute(:status, 'closed')
+
+    owner.balance = owner.balance - reward
+    owner.save!
+
+    hunter.balance = hunter.balance + reward
+    hunter.save!
+
+    firebase_delete_by_user(hunter.firebase_token, "completed")
+    firebase_delete_by_user(owner.firebase_token, "completed-issued")
+
+    firebase_add_by_user(hunter.firebase_token, "closed")
+    firebase_add_by_user(owner.firebase_token, "closed-issued")
   end
 
   def reset_status

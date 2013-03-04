@@ -74,5 +74,18 @@ module Api
       end
     end
 
+    def close
+      @bounty = Bounty.find(params[:id])
+      unless current_user == @bounty.hunter
+        render :status => 401
+      end
+
+      if @bounty.close
+        render json: @bounty.to_json
+      else
+        render json: @bounty.errors, status: :unprocessable_entity
+      end
+    end
+
   end
 end
