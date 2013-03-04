@@ -1,8 +1,12 @@
-%li.side-nav-item.active
-  Bounty Hunter
-%li.side-nav-item
-  Bounty Issuer
-%li.side-nav-item
-  My account
-%li.side-nav-item
-  Sign out
+%li.side-nav-item.active{ :id => 1}
+  %a{ :href => '#' }
+    Bounty Hunter
+%li.side-nav-item{ :id => 2}
+  %a{ :href => '#' }
+    Bounty Issuer
+%li.side-nav-item{ :id => 3}
+  %a{ :href => '#' }
+    My account
+%li.side-nav-item{ :id => 4}
+  %a{ :href => '/logout', 'data-method' => 'delete', :rel => 'nofollow'}
+    Logout

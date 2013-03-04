@@ -13,7 +13,6 @@
           =current_user.name
         .avatar
           =image_tag current_user.avatar
-        =link_to 'Logout', destroy_user_session_path, { :method => :delete, :class => 'logout-button' }
       -else
         =link_to "Login with Facebook", "/auth/facebook", { :class => 'login-button' }
       

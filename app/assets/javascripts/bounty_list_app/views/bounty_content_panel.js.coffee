@@ -3,6 +3,9 @@ Bounty.BountyListApp.Views.BountyContentPanel = Support.CompositeView.extend
   initialize: ->
     @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-list', @showBountyList)
     @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-map', @showBountyMap)
+    
+    @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-hunter', @showBountyMap)
+    @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-issuer', @showBountyMap)
 
     @showMiniNav()
     @showAvailableBounties()

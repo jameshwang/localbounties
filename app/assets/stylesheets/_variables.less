@@ -10,15 +10,37 @@
 
 // Typography
 // -------------------------
-@dinFontFamily:           "DINPro-Light", sans-serif;
-@dinFontFamilyMedium:     "DINPro-Medium", sans-serif;
-@helveticaFontFamily:     "Helvetica Neue", Helvetica, Arial, sans-serif;
-@helveticaLightFontFamily:"HelveticaNeue-Light", sans-serif;
+@font-face {
+    font-family: 'Alpha-Bold';
+    src: font-url('alphabold.eot');
+    src: font-url('alphabold.eot?#iefix') format('embedded-opentype'),
+         font-url('alphabold.woff') format('woff'),
+         font-url('alphabold.ttf') format('truetype'),
+         font-url('alphabold.svg#alphabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
-@primaryFontFamily:       @dinFontFamily;
-@primaryFontFamilyBold:    @dinFontFamilyMedium;
-@secondaryFontFamily:     @helveticaFontFamily;
-@tertiaryFontFamily:      @helveticaLightFontFamily;
+@font-face {
+    font-family: 'Alpha-Light';
+    src: font-url('alphalight.eot');
+    src: font-url('alphalight.eot?#iefix') format('embedded-opentype'),
+         font-url('alphalight.woff') format('woff'),
+         font-url('alphalight.ttf') format('truetype'),
+         font-url('alphalight.svg#alphabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@helveticaFontFamily:       "Helvetica Neue", Helvetica, Arial, sans-serif;
+@helveticaLightFontFamily:  "HelveticaNeue-Light", sans-serif;
+
+@primaryFontFamily:         "Alpha-Light", sans-serif;
+@primaryFontFamilyBold:     "Alpha-Bold", sans-serif;
+
+@secondaryFontFamily:       @helveticaFontFamily;
+@tertiaryFontFamily:        @helveticaLightFontFamily;
 
 .primary_font() {
   font-family: @primaryFontFamily;

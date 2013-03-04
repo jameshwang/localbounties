@@ -8,7 +8,7 @@ Bounty.BountyListApp.Views.FilterBox = Support.CompositeView.extend
     'click .button-map' : 'toggleMap'
 
   initialize: ->
-    @show_map = true
+    @show_map = false
 
   render: ->
     @$el.html(@template())

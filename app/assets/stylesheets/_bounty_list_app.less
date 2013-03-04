@@ -10,7 +10,7 @@
   min-height: 600px;
   background: #333;
 
-  .side-nav-item {
+  .side-nav-item a {
     width: @side_nav_width - 20px;
     padding: 10px 10px;
     float: left;
@@ -19,6 +19,7 @@
     border-bottom: 1px solid #eee;
     border-bottom: 1px solid #2c2c2c;
     color: #888;
+    text-decoration: none;
     // background: #f7f7f7;
     // background: #333;
 
@@ -396,7 +397,8 @@
 
 .bounty-single {
   top: 50px;
-  bottom: 0;
+  bottom: 0;  
+  overflow-y: scroll;
   
   position: fixed;
   width: 450px;
