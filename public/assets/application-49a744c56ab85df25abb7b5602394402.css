@@ -55,4 +55,5 @@ body{background:#fafafa;background:#393939;font-family:"DINPro-Light",sans-serif
 .bounty-mini-nav{width:450px;height:60px;}.bounty-mini-nav .nav-item{width:149.33333333333334px;height:23px;float:left;text-align:center;font-size:12px;line-height:18px;text-transform:uppercase;background:#303030;color:#aaa;padding-top:36px;letter-spacing:1px;cursor:pointer;border-bottom:1px solid #111;text-shadow:0,0,1px,#000;}.bounty-mini-nav .nav-item.active{background:#2a2a2a;color:#ddd;}
 .bounty-mini-nav .nav-item:first-child{border-right:1px solid #222;}
 .bounty-mini-nav .nav-item:last-child{border-left:1px solid #222;-webkit-box-shadow:inset -1px 0 0 #222222;-moz-box-shadow:inset -1px 0 0 #222222;box-shadow:inset -1px 0 0 #222222;-webkit-box-shadow:inset -1px 0 0 #222222;-moz-box-shadow:inset -1px 0 0 #222222;box-shadow:inset -1px 0 0 #222222;}
-.bounty-secondary-panel{position:fixed;width:380px;left:700px;top:0;bottom:0;background:#222;}
+.bounty-secondary-panel{position:fixed;width:450px;left:700px;top:0;bottom:0;background:#222;padding-top:50px;}
+.bounty-single{top:0;bottom:0;position:fixed;width:450px;background:#fff;}
