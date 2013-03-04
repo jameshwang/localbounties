@@ -102,9 +102,6 @@ class Bounty < ActiveRecord::Base
     update_attribute(:status, 'completed')
     update_attribute(:verification_message, 'verification_message')
 
-    owner.total_earned += reward
-    owner.save
-
     # update firebase
     # remove the owner and hunter in progress bounties
     firebase_delete_by_user(hunter.firebase_token, "in-progress")
@@ -115,6 +112,22 @@ class Bounty < ActiveRecord::Base
 
     #create new issued-bounty for hunter completed
     firebase_add_by_user(owner.firebase_token, "completed-issued")
+  end
+
+  def close
+    update_attribute(:status, 'closed')
+
+    hunter.total_earned += reward
+    hunter.save!
+
+    owner.total_owed += reward
+    owner.save!
+
+    firebase_delete_by_user(hunter.firebase_token, "completed")
+    firebase_delete_by_user(owner.firebase_token, "completed-issued")
+
+    firebase_add_by_user(hunter.firebase_token, "closed")
+    firebase_add_by_user(owner.firebase_token, "closed-issued")
   end
 
   def reset_status
