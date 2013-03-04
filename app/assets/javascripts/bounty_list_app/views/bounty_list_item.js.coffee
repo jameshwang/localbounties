@@ -5,6 +5,9 @@ Bounty.BountyListApp.Views.BountyListItem = Support.CompositeView.extend
   template: JST['bounty_list_app/bounty_list_item']
   templateRewardBox: JST['bounty_list_app/reward_box']
 
+  events:
+    'click' : 'showInSecondary'
+
   initialize: ->
     @listenTo(@model, 'change', @render)
 
@@ -17,3 +20,7 @@ Bounty.BountyListApp.Views.BountyListItem = Support.CompositeView.extend
   renderRewardBox: ->
     @$el.find('.reward').html(@templateRewardBox(@model.toJSON()))
     @$el
+
+  showInSecondary: ->
+    console.log('show')
+    Bounty.BountyListApp.vent.trigger('secondary-panel:show-single-bounty', {model: @model})
