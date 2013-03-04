@@ -3,8 +3,10 @@
 
 .side-nav {
   width: @side_nav_width;
-  min-height: 200px;
-  float: left;
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
   min-height: 600px;
   background: #333;
 
@@ -25,13 +27,6 @@
       color: #eee;
     }
   }
-}
-
-.bounty-content-box {
-  width: @content_width;
-  min-height: 200px;
-  float: left;
-  background: #ddd;
 }
 
 
@@ -76,11 +71,12 @@
   height: @bounty_list_item_height;
   // margin-left: 1px;
   // margin-right: 1px;
-  border-bottom: 1px solid #111;
+  
   background: transparent;
 }
 
 .bounty-list-item {
+  border-bottom: 1px solid #ddd;
   // margin: 2px 5px;
   // width: @content_width - 10px;
   width: @content_width;
@@ -268,6 +264,9 @@
 .bounty-mini-nav {
   width: @content_width;
   height: 60px;
+  position: fixed;
+  top: 50px;
+  z-index: 99;
 
 
   .nav-item {
@@ -303,20 +302,179 @@
   }
 }
 
+@primary_panel_width: 450px;
+@secondary_panel_width: 450px;
+
+.bounty-content-box {
+  width: @content_width;
+  top: 50px;
+  left: @side_nav_width;
+  bottom: 0;
+  position: fixed;
+  background: #ddd;
+  overflow-y: scroll;
+}
+
 .bounty-secondary-panel {
   position: fixed;
   width: 450px;
-  left: 700px;
-  top: 0;
+  left: @primary_panel_width + @side_nav_width;
+  top: 50px;
   bottom: 0;
   background: #222;
-  padding-top: 50px;
 }
 
 .bounty-single {
-  top: 0;
+  top: 50px;
   bottom: 0;
+  
   position: fixed;
   width: 450px;
-  background: #fff;
+  background: #fafafa;
+  .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
+
+  .top-info {
+    float: left;
+    width: 450px;
+    height: 100px;
+    background: #fff;
+    .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
+  }
+
+  .bottom-info {
+    float: left;
+    width: 450px;
+    background: #fafafa;
+    .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
+  }
+
+  .title {
+    .primary_font_bold();
+    font-size: 20px;
+    line-height: 30px;
+    color: #333;
+    padding: 20px 20px;
+  }
+
+  .description {
+    padding: 20px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .action-section {
+    float: left;
+    height: 70px;
+    width: @secondary_panel_width;
+    .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
+    position: relative;
+  }
+
+  .button-accept {
+    border: 0;
+    outline: none;
+    font-size: 16px;
+    line-height: 30px;
+    .primary_font_bold();
+    color: #fff;
+    text-align: center;
+    height: 50px;
+    width: @secondary_panel_width - 40px;
+    margin-left: -(@secondary_panel_width - 40px)/2;
+    left: 50%;
+    top: 0;
+    position: absolute;
+    background: #333;
+    .rounded(3px);
+    cursor: pointer;
+
+  }
+
+  .owner-section {
+    float: left;
+    width: @secondary_panel_width - 40px;
+    padding: 20px;
+    height: 40px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      .rounded(20px);
+      float: left;
+      background: #eee;
+    }
+
+    .details {
+      float: left;
+      width: @secondary_panel_width - 40px - 40px - 20px;
+      margin-left: 20px;
+
+      .name {
+        font-size: 14px;
+        line-height: 20px;
+        .primary_font_bold();
+        color: #333;
+      }
+
+      .level {
+        font-size: 12px;
+        line-height: 18px;
+        color: #aaa;
+        margin-top: 4px;
+      }
+    }
+
+  }
+
+  .description-section {
+    float: left;
+    width: @secondary_panel_width - 40px;
+    padding: 20px;
+  }
+
+  .details-section {
+    width: @secondary_panel_width - 40px;
+    padding: 20px 20px;
+    float: left;
+    // meant for 3
+    .block {
+      background: #fff;
+      text-align: center;
+
+      float: left;
+      width: (@secondary_panel_width - 40px - 20px)/3;
+      margin-right: 10px;
+      .rounded(2px);
+
+      .number {
+        padding-top: 10px;
+        .primary_font_bold();
+        font-size: 16px;
+        line-height: 24px;
+        width: (@secondary_panel_width - 40px - 20px)/3;
+        float: left;
+        text-align: center;
+        color: #222;
+        height: 30px;
+      }
+
+      .label {
+        height: 20px;
+        font-size: 10px;
+        line-height: 18px;
+        width: (@secondary_panel_width - 40px - 20px)/3;
+        float: left;
+        text-align: center;
+        color: #222;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }

@@ -6,6 +6,7 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
   render: ->
     @$el.html(@template())
     @renderListItems()
+    @showBountyMap()
     @$el
 
   initialize: ->

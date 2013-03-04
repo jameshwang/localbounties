@@ -47,6 +47,12 @@ class Bounty < ActiveRecord::Base
     firebase_add_by_user(owner_id, "available-issued")
   end
 
+  def self.make_all_available
+    self.all.each do |bounty|
+      bounty.available
+    end
+  end
+
   # POST bounties/:bounty_id/claim
   # bounties_controller#claim
   def claim(user)
@@ -114,7 +120,7 @@ class Bounty < ActiveRecord::Base
 
   def firebase_add_by_bounty
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.set("bounties/bounty-#{id}", firebase_json)
+    Firebase.set("bounties/available/bounty-#{id}", firebase_json)
   end
 
   def firebase_add_by_user(user_id, status)

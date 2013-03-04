@@ -1,2 +1,45 @@
-title: {{title}}
-description: {{description}}
+.top-info
+  .reward
+  .title
+    {{title}}
+.action-section
+  %button.button-accept
+    Accept this bounty
+  .additional-action-info.hidden
+    Additional info here
+.bottom-info
+  .section.owner-section
+    .avatar
+    .details
+      .name
+        Connor Warnock
+      .level
+        Veteran
+  .section.details-section
+    .block.distance
+      .number
+        1.2 miles
+      .label
+        Away from you
+    .block.time
+      .number
+        2 hrs
+      .label
+        Until expiration
+    .block.duration
+      .number
+        5 min
+      .label
+        to complete
+  .section.description-section
+    .label
+      Description
+    .description-block
+      %p
+        {{description}}
+  .section.description-section
+    .label
+      Verification
+    .description-block
+      %p
+        {{verification_description}}

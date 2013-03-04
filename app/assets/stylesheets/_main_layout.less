@@ -8,6 +8,10 @@ body {
   color: #333;
 }
 
+.hidden {
+  display: none;
+}
+
 .wrapper {
   width: 100%;
   min-width: @app_width;
@@ -36,6 +40,9 @@ body {
 
 .header-wrapper {
   height: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
   background: #fff;
   .outer-shadow(0, 1px, 0, rgba(0,0,0,.05));
   z-index: 99;
