@@ -9,9 +9,11 @@ Bounty.BountyListApp.Views.BountyListItem = Support.CompositeView.extend
     'click' : 'showInSecondary'
 
   initialize: ->
-    @listenTo(@model, 'change', @render)
-    @listenTo(@model, 'remove', @close)
+    # @listenTo(@model, 'change', @render)
+    @listenTo(@model, 'remove', @disable)
 
+  disable: ->
+    @$el.find('.bounty-list-item').addClass('disabled')
   # removeItem: ->
   #   @()
   #   @remove()
