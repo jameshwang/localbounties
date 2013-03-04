@@ -64,6 +64,11 @@ class Bounty < ActiveRecord::Base
   before_save :update_due_date
   # after_update :update_firebase
   after_create :make_available
+  before_save :default_values
+
+  def default_values
+    self.duration ||= 5
+  end
 
   def make_available
     update_attribute(:status, 'available')
@@ -115,16 +120,16 @@ class Bounty < ActiveRecord::Base
   end
 
   def close
-    update_attribute(:status, 'closed')
-
     if (owner.balance < reward)
       raise "Insufficient balance for bounty"
     end
 
-    owner.balance -= reward
+    update_attribute(:status, 'closed')
+
+    owner.balance = owner.balance - reward
     owner.save!
 
-    hunter.balance += reward
+    hunter.balance = hunter.balance + reward
     hunter.save!
 
     firebase_delete_by_user(hunter.firebase_token, "completed")
