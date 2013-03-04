@@ -42,3 +42,5 @@ gem 'haml-rails'
 gem 'firebase'
 gem 'rabl'
 gem 'pry'
+
+gem 'devise'
