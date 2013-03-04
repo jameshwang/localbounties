@@ -1,6 +1,6 @@
-.nav-item.available.active
+.nav-item.available{ :id => "1" }
   Available
-.nav-item.in-progress
+.nav-item.in-progress{ :id => "2" }
   In progress
-.nav-item.completed
+.nav-item.completed{ :id => "3" }
   Completed

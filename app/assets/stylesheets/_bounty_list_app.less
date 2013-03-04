@@ -199,22 +199,39 @@
     letter-spacing: 1px;
   }
 
-  .add-button {
-    width: 180px;
-    height: 21px;
-    padding-top: 3px;
-    border: 1px solid #111;
-    background: #3c3c3c;
-    .rounded(2px);
-    text-align: center;
-    color: #fff;
+  .button-container  {
     position: absolute;
     right: 4px;
     top: 4px;
-    font-size: 12px;
-    line-height: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    height: 24px;
+    width: 180x;
+
+    .button {
+      float: left;
+      height: 21px;
+      padding: 0px 6px;
+      padding-top: 3px;
+      border: 1px solid #111;
+      background: #3c3c3c;
+      .rounded(2px);
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      min-width: 20px;
+      margin-left: 5px;
+      .no-select();
+
+      &.active {
+        background: #555;
+      }
+    }
+  }
+
+  .add-button {
+
   }
 
   .filter-status {
