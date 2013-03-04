@@ -87,10 +87,10 @@ class Bounty < ActiveRecord::Base
     firebase_delete_by_user(owner_id, "available-issued")
     
     # create new bounty for owner in-progress
-    firebase_add_by_user(owner_id, "in-progress")
+    firebase_add_by_user(hunter.firebase_token, "in-progress")
 
     # create new issued-bounty for hunter in-progress-issued
-    firebase_add_by_user(hunter_id, "in-progress-issued")
+    firebase_add_by_user(owner.firebase_token, "in-progress-issued")
   end
 
   def complete(user)
@@ -153,7 +153,7 @@ class Bounty < ActiveRecord::Base
     Firebase.set("bounties/available/bounty-#{id}", firebase_json)
   end
 
-  def firebase_add_by_user(user_id, status)
+  def firebase_add_by_user(user_token, status)
     Firebase.base_uri = ENV['FIREBASE_URL']
     Firebase.set("users/#{user_id}/bounties/#{status}/bounty-#{id}", firebase_json)
   end
