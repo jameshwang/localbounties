@@ -11,6 +11,9 @@ User.delete_all
 
 User.create(name: "Michael S.")
 User.create(name: "Joseph K.")
+User.create(name: "Connor W.")
+User.create(name: "Vincent S.")
+User.create(name: "James H.")
 
 Bounty.delete_all
 
@@ -30,4 +33,4 @@ Bounty.create(owner_id: 1, title: 'NEED Coffee', description: 'Can someone bring
 Bounty.create(owner_id: 1, title: 'Help Moving Desk', description: 'I need someone to help move a desk for a block', reward: 125, latitude: 37.7663013039996, longitude: -122.40549672969, duration: '1.53333333333333', status: 'available')
 Bounty.create(owner_id: 1, title: 'Need a Pliny the Elder', description: 'Can someone bring me a pliny?', reward: 250, latitude: 37.7663167023566, longitude: -122.413514787828, duration: '1.45', status: 'available')
 Bounty.create(owner_id: 1, title: 'I Need Cookies!!', description: 'Can someone bring me a bag of oreos?', reward: 450, latitude: 37.7752950126725, longitude: -122.399772878982, duration: '1.9', status: 'available')
-Bounty.create(owner_id: 1, hunter_id: 2, title: 'I need water!', description: 'Can someone bring me a water bottle?', reward: 150, latitude: 37.7767647666299, longitude: -122.400389352663, duration: '0.983333333333333', status: 'available')
+Bounty.create(owner_id: 1, title: 'I need water!', description: 'Can someone bring me a water bottle?', reward: 150, latitude: 37.7767647666299, longitude: -122.400389352663, duration: '0.983333333333333', status: 'available')
