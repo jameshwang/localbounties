@@ -55,14 +55,27 @@
   min-height: 400px;
   float: left;
   background: #282828;
-  .inner-shadow(0,0,1px,#000);
+  .inner-shadow(0,0,1px,#000); 
+
+  .map-container {
+    float: left;
+    width: @content_width;
+    background: #242424;
+    height: 300px;
+    display: none;
+  }
+
+  .list-container {
+    float: left;
+    width: @content_width;
+  }
 }
 
 .bounty-list-item-container {
-  width: @content_width - 2px;
+  width: @content_width;
   height: @bounty_list_item_height;
-  margin-left: 1px;
-  margin-right: 1px;
+  // margin-left: 1px;
+  // margin-right: 1px;
   border-bottom: 1px solid #111;
   background: transparent;
 }
@@ -70,7 +83,7 @@
 .bounty-list-item {
   // margin: 2px 5px;
   // width: @content_width - 10px;
-  width: @content_width - 2px;
+  width: @content_width;
   height: @bounty_list_item_height;
   background: #fff;
   float: left;
@@ -288,4 +301,13 @@
       .inner-shadow(-1px, 0, 0, #222);
     }
   }
+}
+
+.bounty-secondary-panel {
+  position: fixed;
+  width: 380px;
+  left: 700px;
+  top: 0;
+  bottom: 0;
+  background: #222;
 }

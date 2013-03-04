@@ -19,8 +19,8 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     @listenTo(Bounty.BountyListApp.vent, 'bounty-list:show-in-progress', _.bind(@showInProgress, @))
     @listenTo(Bounty.BountyListApp.vent, 'bounty-list:show-completed', _.bind(@showCompleted, @))
 
-    @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-map', @showBountyMap)
-    @listenTo(Bounty.BountyListApp.vent, 'content-panel:hide-bounty-map', @hideBountyMap)
+    @listenTo(Bounty.BountyListApp.vent, 'bounty-list:show-bounty-map', @showBountyMap)
+    @listenTo(Bounty.BountyListApp.vent, 'bounty-list:hide-bounty-map', @hideBountyMap)
     
     # to be deleted
     @listenTo(Bounty.BountyListApp.vent, 'bounty-list:add', _.bind(@addNewListItem, @))
@@ -33,8 +33,15 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     # @listenTo(Bounty.BountyListApp.vent, 'bounty-list:add', @addNewListItem)
 
   showBountyMap: ->
+    @$el.find('#map-container').slideDown(200, _.bind(@renderMap,@))
+
+  renderMap: ->
+    @map_view ?= new Bounty.BountyListApp.Views.BountyMap()
+    @renderChild(@map_view)
+    @$el.find('#map-container').html(@map_view.el)
 
   hideBountyMap: ->
+    @$el.find('#map-container').slideUp(200)
 
   showAvailable: ->
     console.log('show avail')
@@ -56,7 +63,6 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     @renderListItems()
 
   addNewListItem: ->
-    console.log('adddd')
     @collection.add({ title: 'Sample item' })
 
   addListItem: (model) ->
@@ -65,7 +71,7 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
     $(list_item_view.el).find('.content').hide()
     $(list_item_view.el).find('.bounty-list-item').hide()
     $(list_item_view.el).hide()
-    @$el.prepend(list_item_view.el)
+    @$el.find('#list-container').prepend(list_item_view.el)
     $(list_item_view.el).slideDown(200, 'swing')
     # $(list_item_view.el).find('.bounty-list-item').fadeIn()
     e = $(list_item_view.el).find('.bounty-list-item')

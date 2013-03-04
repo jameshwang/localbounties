@@ -1,5 +1,6 @@
 =javascript 'bounty_list_app_manifest'
 
+
 - content_for :content do
   = render :partial => 'shared/header'
   .container.body-container
@@ -7,6 +8,7 @@
     #bounty-content-box.bounty-content-box
       #bounty-mini-nav-container.bounty-mini-nav-container
       #bounty-sub-content.bounty-sub-content
+    #bounty-secondary-panel.bounty-secondary-panel
 
   =yield
   = render :partial => 'shared/footer'
