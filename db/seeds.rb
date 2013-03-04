@@ -17,8 +17,8 @@ Firebase.delete('users')
 User.delete_all
 
 
-user_a = User.create!(name: "Michael S.", email: "michael@email.com")
-user_b = User.create!(name: "Joseph K.", email: "joseph@email.com")
+user_a = User.create!(name: "Michael S.", email: "michael@email.com", balance: 10000)
+user_b = User.create!(name: "Joseph K.", email: "joseph@email.com", balance: 10000)
 # User.create(name: "Connor W.", email: "connor@email.com")
 # User.create(name: "Vincent S.", email: "vincent@email.com")
 # User.create(name: "James H.", email: "james@email.com")
