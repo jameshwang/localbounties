@@ -37,27 +37,100 @@ class Bounty < ActiveRecord::Base
   belongs_to :owner, :class_name => "User"
 
   before_save :update_due_date
-  after_update :update_firebase
-  after_create :create_firebase
+  # after_update :update_firebase
+  after_create :available
+
+  def available
+    update_attribute(:status, 'available')
+
+    firebase_add_by_bounty
+    firebase_add_by_user(owner_id, "available-issued")
+  end
 
   # POST bounties/:bounty_id/claim
   # bounties_controller#claim
   def claim(user)
     # update rails status attribute
     update_attribute(:status, 'in_progress')
+    update_attribute(:hunter_id, user.id)
 
     # update firebase
-    # remove the old ... go into bountis/available- Bounty-id
-
-    # create new one at
-    # users/:user_id/bounties/in_progress
+    # remove bounty from global available and owner available-issued bounties
+    firebase_delete_by_bounty
+    firebase_delete_by_user(owner_id, "available-issued")
     
+    # create new bounty for owner in-progress
+    firebase_add_by_user(owner_id, "in-progress")
+
+    # create new issued-bounty for hunter in-progress-issued
+    firebase_add_by_user(hunter_id, "in-progress-issued")
   end
 
-  def complete
+  def complete(user)
+    update_attribute(:status, 'completed')
+
+    # update firebase
+    # remove the owner and hunter in progress bounties
+    firebase_delete_by_user(owner_id, "in-progress")
+    firebase_delete_by_user(hunter_id, "in-progress-issued")
+
+    # create new bounty for owner completed
+    firebase_add_by_user(owner_id, "completed")
+
+    #create new issued-bounty for hunter completed
+    firebase_add_by_user(hunter_id, "completed-issued")
+  end
+
+  def reset_status
+    firebase_delete_by_user(owner_id, "in-progress")
+    firebase_delete_by_user(owner_id, "completed")
+
+    firebase_delete_by_user(hunter_id, "in-progress-issued")
+    firebase_delete_by_user(hunter_id, "completed-issued")
+
+    update_attribute(:status, nil)
+    update_attribute(:hunter_id, nil)
   end
 
   private
+
+  def firebase_json
+    {
+        :id => id,
+        :description => description,
+        :due_date => due_date,
+        :duration => duration,
+        :hunter_id => hunter_id,
+        :latitude => latitude,
+        :longitude => longitude,
+        :owner_id => owner_id,
+        :reward => reward,
+        :status => status,
+        :title => title,
+        :verification_type => verification_type,
+        :verification => verification 
+    }
+  end
+
+  def firebase_add_by_bounty
+    Firebase.base_uri = ENV['FIREBASE_URL']
+    Firebase.set("bounties/bounty-#{id}", firebase_json)
+  end
+
+  def firebase_add_by_user(user_id, status)
+    Firebase.base_uri = ENV['FIREBASE_URL']
+    Firebase.set("users/#{user_id}/bounties/#{status}/bounty-#{id}", firebase_json)
+  end
+
+  def firebase_delete_by_user(user_id, status)
+    Firebase.base_uri = ENV['FIREBASE_URL']
+    Firebase.delete("users/#{user_id}/bounties/#{status}/bounty-#{id}")
+  end
+
+  def firebase_delete_by_bounty
+    Firebase.base_uri = ENV['FIREBASE_URL']
+    Firebase.delete("bounties/bounty-#{id}")
+  end
 
   def update_due_date
     self.due_date = DateTime.now + duration.to_f.hours
@@ -65,8 +138,8 @@ class Bounty < ActiveRecord::Base
 
   def create_firebase
     Firebase.base_uri = ENV['FIREBASE_URL']
-    # Firebase.push("Bounty-#{id}", { :id => id})
-    firebase_response = Firebase.push("bounties", { :id => id,
+
+    firebase_response = Firebase.set("bounties/bounty-#{id}", { :id => id,
                               :description => description,
                               :due_date => due_date,
                               :duration => duration,
@@ -79,15 +152,13 @@ class Bounty < ActiveRecord::Base
                               :title => title,
                               :verification_type => verification_type,
                               :verification => verification })
-    Firebase.base_uri = ENV['FIREBASE_URL'] + "/queries/by_status"
-    Firebase.push(status, JSON.parse(firebase_response.response.body)['name'])
 
 
   end
 
   def update_firebase
     Firebase.base_uri = ENV['FIREBASE_URL']
-    firebase_response = Firebase.push("bounties", { :id => id,
+    firebase_response = Firebase.set("bounties/bounty-#{id}", { :id => id,
                               :description => description,
                               :due_date => due_date,
                               :duration => duration,
@@ -101,7 +172,7 @@ class Bounty < ActiveRecord::Base
                               :verification_type => verification_type,
                               :verification => verification })
 
-    Firebase.base_uri = ENV['FIREBASE_URL'] + "/queries/by_status"
-    Firebase.push(status, JSON.parse(firebase_response.response.body)['name'])
+    # Firebase.base_uri = ENV['FIREBASE_URL'] + "/queries/by_status"
+    # Firebase.push(status, JSON.parse(firebase_response.response.body)['name'])
   end
 end
