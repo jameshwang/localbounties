@@ -52,7 +52,8 @@ class Bounty < ActiveRecord::Base
                   :status,
                   :title,
                   :verification_type,
-                  :verification
+                  :verification,
+                  :accepted_at
 
   belongs_to :hunter, :class_name => "User"
   belongs_to :owner, :class_name => "User"
@@ -82,6 +83,7 @@ class Bounty < ActiveRecord::Base
     # update rails status attribute
     update_attribute(:status, 'in_progress')
     update_attribute(:hunter_id, user.id)
+    update_attribute(:accepted_at, DateTime.now)
 
     # update firebase
     # remove bounty from global available and owner available-issued bounties
@@ -138,6 +140,7 @@ class Bounty < ActiveRecord::Base
         :title => title,
         :verification_type => verification_type,
         :verification => verification,
+        :accepted_at => accepted_at
     }
 
     unless owner.nil?
