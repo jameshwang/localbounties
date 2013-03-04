@@ -6,7 +6,7 @@ Bounty.BountyListApp.Views.BountySingle = Support.CompositeView.extend
 
   events:
     'click .button-accept' : 'accept'
-    'click .complete-button' : 'complete'
+    'click .button-complete' : 'complete'
 
   initialize: ->
     # @listenTo(@model, 'change:status', _.bind(@dropActionbox, @))
@@ -39,6 +39,9 @@ Bounty.BountyListApp.Views.BountySingle = Support.CompositeView.extend
     )
 
   complete: ->
+    @$el.find('.button-complete').html('Bounty completed!')
+    @$el.find('.countdown-box').countdown('pause')
+
     verification_message = @$el.find('.verification-message').val()
     Bounty.BountyListApp.vent.trigger('mini-nav:show-completed')
 

@@ -102,6 +102,9 @@ class Bounty < ActiveRecord::Base
     update_attribute(:status, 'completed')
     update_attribute(:verification_message, 'verification_message')
 
+    owner.total_earned += reward
+    owner.save
+
     # update firebase
     # remove the owner and hunter in progress bounties
     firebase_delete_by_user(hunter.firebase_token, "in-progress")

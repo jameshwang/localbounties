@@ -15,7 +15,7 @@
     .bottom-section
       %textarea{:class => 'verification-message'}
     .button-section
-      %button.big-button.complete-button
+      %button.big-button.button-complete
         Complete
 .bottom-info
   .section.owner-section
@@ -32,13 +32,13 @@
       .label
         Away from you
     .block.time
-      .number
+      .number.time-left
         2 hrs
       .label
         Until expiration
     .block.duration
       .number
-        5 min
+        {{duration}} min
       .label
         to complete
   .section.description-section
