@@ -10,6 +10,7 @@ git add .
 git add -u
 git commit -m 'Compiles assets'
 git push heroku master
+heroku run rake db:migrate
 
 echo 'Removing assets...'
 echo '==================='
