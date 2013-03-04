@@ -19,7 +19,11 @@ module Api
 
     # POST /bounties.json
     def create
+      if current_user.nil?
+        render :status => 401
+      end
       @bounty = Bounty.new(params[:bounty])
+      @bounty.owner = current_user
 
       if @bounty.save
         render json: @bounty, status: :created, location: @bounty

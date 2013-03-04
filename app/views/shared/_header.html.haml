@@ -1,10 +1,11 @@
 .wrapper.header-wrapper
   .container.header-container
     .logo
-      Bountython
+      Bounty Flow
 
-    .new-bounty-button#new-bounty-button
-      Issue a new bounty
+    - if current_user
+      .new-bounty-button#new-bounty-button
+        Issue a new bounty
 
     .user-box
       - if current_user

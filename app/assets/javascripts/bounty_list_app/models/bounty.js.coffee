@@ -15,3 +15,17 @@ class Bounty.BountyListApp.Models.Bounty extends Backbone.Model
     error: (jqXHR, textStatus, errorThrown) ->
     success: (data, textStatus, jqXHR) ->
       _this.set data
+
+  url: ->
+    if @isNew()
+      '/api/bounties/'
+    else
+      '/api/bounties/' + @get('id')
+  # create: ->
+  #   _this = @
+  #   $.ajax '/api/bounties/' + @get('id') + '/accept',
+  #   type: 'POST'
+  #   dataType: 'json'
+  #   error: (jqXHR, textStatus, errorThrown) ->
+  #   success: (data, textStatus, jqXHR) ->
+  #     _this.set data

@@ -13,11 +13,13 @@ Bounty.BountyListApp.Views.BountySecondaryPanel = Support.CompositeView.extend
     @$el
 
   showSingleBounty: (options) ->
+    @_closeChildren()
     @single_view = new Bounty.BountyListApp.Views.BountySingle({model: options.model})
     @renderChild(@single_view)
     @$el.html(@single_view.el)
 
   showNewBounty: ->
+    @_closeChildren()
     @new_bounty = new Bounty.BountyListApp.Views.NewBounty()
     @renderChild(@new_bounty)
     @$el.html(@new_bounty.el)
