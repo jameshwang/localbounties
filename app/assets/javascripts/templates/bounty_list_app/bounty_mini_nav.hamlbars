@@ -1,6 +1,24 @@
 .nav-item.available{ :id => "1" }
+  .count-box.plus-one.hidden
+    1
+    .plus
+      +
   Available
+  
 .nav-item.in-progress{ :id => "2" }
+  .count-box.plus-one.hidden
+    1
+    .plus
+      +
+
+  .count-box.in-progress-count-box
+    {{ in_progress_count }}
+
   In progress
+
 .nav-item.completed{ :id => "3" }
+  .count-box.plus-one.hidden
+    1
+    .plus
+      +
   Completed

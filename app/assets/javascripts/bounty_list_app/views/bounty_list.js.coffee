@@ -31,7 +31,7 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
 
   bindEvents: ->
     @listenTo(@collection, 'add', @addListItem)
-    @listenTo(@collection, 'change', @resetFired)
+    # @listenTo(@collection, 'remove', @resetFired)
     # @listenTo(@collection, 'remove', @addListItem)
     # @listenTo(Bounty.BountyListApp.vent, 'bounty-list:add', @addNewListItem)
 

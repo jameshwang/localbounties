@@ -100,14 +100,14 @@ class Bounty < ActiveRecord::Base
 
     # update firebase
     # remove the owner and hunter in progress bounties
-    firebase_delete_by_user(owner.firebase_token, "in-progress")
-    firebase_delete_by_user(hunter.firebase_token, "in-progress-issued")
+    firebase_delete_by_user(hunter.firebase_token, "in-progress")
+    firebase_delete_by_user(owner.firebase_token, "in-progress-issued")
 
     # create new bounty for owner completed
-    firebase_add_by_user(owner.firebase_token, "completed")
+    firebase_add_by_user(hunter.firebase_token, "completed")
 
     #create new issued-bounty for hunter completed
-    firebase_add_by_user(hunter.firebase_token, "completed-issued")
+    firebase_add_by_user(owner.firebase_token, "completed-issued")
   end
 
   def reset_status
