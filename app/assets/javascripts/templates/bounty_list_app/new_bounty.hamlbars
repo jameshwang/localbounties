@@ -1,3 +1,43 @@
 .new-bounty-top
   %h2
     Create a new bounty
+
+.field-box.title-field-box
+  %label
+    Title
+  .field
+    %input{ :type => 'text', :class => 'large', :placeholder => 'Put my name on the waiting list', :id => 'title'}
+
+.field-box
+  %label
+    Description
+  .field
+    %textarea{:placeholder => 'Keep it short and sweet...', :id => 'description'}
+
+.field-box
+  %label
+    Verification Process
+  .field
+    %textarea{:placeholder => 'How do they prove the task is complete.  Can be as easy as "Will verify in person" or the bounty hunter can send you a picture...', :id => 'verification-process'}
+
+.field-box
+  %label
+    Reward
+  .field
+    %input{ :type => 'text', :class => 'short', :placeholder => '1.00', :id => 'reward'}
+
+.field-box
+  %label
+    Amount of time to complete
+  .field
+    %input{ :type => 'text', :class => 'short', :placeholder => '10 minutes', :id => 'duration'}
+
+.field-box
+  %label
+    Location
+  .field
+    %input{ :type => 'text', :placeholder => '44 Second Street, San Francisco', :id => 'location'}
+
+.field-box.button-field-box
+  %button.big-button.submit-button
+    Create this bounty!

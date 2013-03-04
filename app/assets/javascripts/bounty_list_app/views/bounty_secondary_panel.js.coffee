@@ -3,6 +3,11 @@ Bounty.BountyListApp.Views.BountySecondaryPanel = Support.CompositeView.extend
   initialize: ->
     @listenTo(Bounty.BountyListApp.vent, 'secondary-panel:show-single-bounty', _.bind(@showSingleBounty, @))
     @listenTo(Bounty.BountyListApp.vent, 'secondary-panel:show-new-bounty', _.bind(@showNewBounty, @))
+    
+    _this = @
+    $('#new-bounty-button').click( () ->
+      _this.showNewBounty()
+    )
 
   render: ->
     @$el

@@ -29,7 +29,24 @@
   }
 }
 
-
+.big-button {
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  line-height: 30px;
+  .primary_font_bold();
+  color: #fff;
+  text-align: center;
+  height: 50px;
+  width: @secondary_panel_width - 40px;
+  margin-left: -(@secondary_panel_width - 40px)/2;
+  left: 50%;
+  top: 0;
+  position: absolute;
+  background: #333;
+  .rounded(3px);
+  cursor: pointer;
+}
 
 .bounty-sub-content {
   float: left;
@@ -306,9 +323,6 @@
   }
 }
 
-@primary_panel_width: 450px;
-@secondary_panel_width: 450px;
-
 .bounty-content-box {
   width: @content_width;
   top: 50px;
@@ -511,5 +525,88 @@
         margin-right: 0;
       }
     }
+  }
+}
+
+.new-bounty {
+  width: @secondary_panel_width;
+  background: #fff;
+  top: 50px;
+  bottom: 0;
+  position: fixed;
+  overflow-y: scroll;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  .inner-shadow(0,0,1px,#000);
+
+  .submit {
+
+  }
+}
+
+.field-box {
+  width: @secondary_panel_width - 40px;
+  padding: 10px 20px;
+  margin-bottom: 0px;
+  float: left;
+  position: relative;
+
+  &.button-field-box {
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  input, textarea {
+    border: 1px solid #eee;
+    outline: none;
+    padding: 8px;
+    font-size: 14px;
+    line-height: 24px;
+    .rounded(3px);
+    background: #fafafa;
+  }
+
+  input {
+    width: @secondary_panel_width - 80px - 2px - 16px;
+
+    &.large {
+      width: @secondary_panel_width - 40px - 2px - 16px;
+    }
+
+    &.short {
+      width: @secondary_panel_width - 340px - 2px - 16px;
+    }
+  }
+
+  textarea {
+    width: @secondary_panel_width - 40px - 2px - 16px;
+    min-height: 80px;
+  }
+
+  label {
+    width: @secondary_panel_width - 40px;
+    font-size: 14px;
+    line-height: 22px;
+    .primary_font_bold();
+    margin-bottom: 8px;
+    float: left;
+    display: block;
+  }
+
+  .field {
+    width: @secondary_panel_width - 40px;
+    float:left;
+  }
+}
+
+.new-bounty-top {
+  padding: 10px 20px;
+  float: left;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 30px;
+    font-size: 25px;
+    .primary_font_bold();
   }
 }
