@@ -2,7 +2,7 @@
 # to access, just call as ENV['FIREBASE_URL'] anywhere in the code
 if Rails.env.development? or Rails.env.test?
 
-  ENV['FIREBASE_URL']         = "https://localbounties.firebaseio.com"
+  ENV['FIREBASE_URL']         = "https://localbounties-01.firebaseio.com"
 
   # Facebook auth
   ENV['FACEBOOK_APP_ID']         = "104082416444725"

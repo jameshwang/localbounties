@@ -122,7 +122,7 @@ class Bounty < ActiveRecord::Base
   private
 
   def firebase_json
-    {
+    json = {
         :id => id,
         :description => description,
         :due_date => due_date,
@@ -136,12 +136,16 @@ class Bounty < ActiveRecord::Base
         :title => title,
         :verification_type => verification_type,
         :verification => verification,
-        :owner => {
-          :name => owner.name,
-          :avatar => owner.avatar,
-          :ranked => 'Peon'
-        }
     }
+
+    unless owner.nil?
+      json[:owner] = {
+        :name => owner.name,
+        :avatar => owner.avatar,
+        :ranked => 'Peon'
+      }
+    end
+    json
   end
 
   def firebase_add_by_bounty
@@ -161,7 +165,7 @@ class Bounty < ActiveRecord::Base
 
   def firebase_delete_by_bounty
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.delete("bounties/bounty-#{id}")
+    Firebase.delete("bounties/available/bounty-#{id}")
   end
 
   def update_due_date
