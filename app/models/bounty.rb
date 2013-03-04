@@ -40,6 +40,23 @@ class Bounty < ActiveRecord::Base
   after_update :update_firebase
   after_create :create_firebase
 
+  # POST bounties/:bounty_id/claim
+  # bounties_controller#claim
+  def claim(user)
+    # update rails status attribute
+    update_attribute(:status, 'in_progress')
+
+    # update firebase
+    # remove the old ... go into bountis/available- Bounty-id
+
+    # create new one at
+    # users/:user_id/bounties/in_progress
+    
+  end
+
+  def complete
+  end
+
   private
 
   def update_due_date
