@@ -1,5 +1,6 @@
 module Api
   class BountiesController < BaseController
+    before_filter :authenticate_user!, :only => [:create, :update, :accept, :complete, :reset]
     respond_to :json
 
     def index

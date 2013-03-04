@@ -10,6 +10,12 @@ Bounty.BountyListApp.Views.BountyListItem = Support.CompositeView.extend
 
   initialize: ->
     @listenTo(@model, 'change', @render)
+    @listenTo(@model, 'remove', @close)
+
+  # removeItem: ->
+  #   @()
+  #   @remove()
+  #   console.log('go away!!')
 
 
   render: ->

@@ -31,7 +31,12 @@ Bounty.BountyListApp.Views.BountyList = Support.CompositeView.extend
 
   bindEvents: ->
     @listenTo(@collection, 'add', @addListItem)
+    @listenTo(@collection, 'change', @resetFired)
+    # @listenTo(@collection, 'remove', @addListItem)
     # @listenTo(Bounty.BountyListApp.vent, 'bounty-list:add', @addNewListItem)
+
+  resetFired: ->
+    console.log('change!!!')
 
   showBountyMap: ->
     @$el.find('#map-container').slideDown(200, _.bind(@renderMap,@))
