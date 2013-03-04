@@ -117,11 +117,15 @@ class Bounty < ActiveRecord::Base
   def close
     update_attribute(:status, 'closed')
 
-    hunter.total_earned += reward
-    hunter.save!
+    if (owner.balance < reward)
+      raise "Insufficient balance for bounty"
+    end
 
-    owner.total_owed += reward
+    owner.balance -= reward
     owner.save!
+
+    hunter.balance += reward
+    hunter.save!
 
     firebase_delete_by_user(hunter.firebase_token, "completed")
     firebase_delete_by_user(owner.firebase_token, "completed-issued")
