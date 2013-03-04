@@ -9,7 +9,6 @@
 #  description       :text
 #  due_date          :datetime
 #  duration          :string(255)
-#  price             :integer
 #  latitude          :float
 #  longitude         :float
 #  verification      :text
@@ -17,6 +16,7 @@
 #  status            :string(255)
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
+#  reward            :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
