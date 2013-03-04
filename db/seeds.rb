@@ -7,6 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+# Reset firebase collections
+require 'firebase'
+
+Firebase.base_uri = ENV['FIREBASE_URL']
+Firebase.delete('bounties')
+Firebase.delete('users')
+
 User.delete_all
 
 User.create(name: "Michael S.", email: "michael@email.com")
