@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
+body{line-height:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+body{background:#fafafa;background:#393939;font-family:"DINPro-Light",sans-serif;font-family:"DINPro-Light",sans-serif;color:#333;}
+.wrapper{width:100%;min-width:700px;float:left;}
+.container{width:700px;float:left;position:relative;}
+.button{cursor:pointer;}
+.logo{font-size:20px;line-height:30px;font-family:"DINPro-Medium",sans-serif;font-family:"DINPro-Medium",sans-serif;padding:8px 0;float:left;}
+.header-wrapper{height:50px;background:#fff;-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);-webkit-box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);-moz-box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);box-shadow:0 1px 0 rgba(0, 0, 0, 0.05);z-index:99;position:relative;}
+.body-container{min-height:200px;}
+.user-box{height:50px;float:right;}.user-box .name{float:left;padding:14px 20px;font-size:14px;line-height:18px;}
+.user-box .avatar{float:left;margin-top:5px;width:40px;height:40px;display:block;-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px 25px 25px 25px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px 25px 25px 25px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;background:#fafafa;}
+.clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+.side-nav{width:250px;min-height:200px;float:left;min-height:600px;background:#333;}.side-nav .side-nav-item{width:230px;padding:10px 10px;float:left;font-size:14px;line-height:20px;border-bottom:1px solid #eee;border-bottom:1px solid #2c2c2c;color:#888;}.side-nav .side-nav-item.active{background:#303030;color:#eee;}
+.bounty-content-box{width:450px;min-height:200px;float:left;background:#ddd;}
+.bounty-sub-content{float:left;width:450px;height:60px;background:#ccc;}
+.bounty-filter-box{height:20px;width:450px;background:#333;float:left;}
+.bounty-list{width:450px;min-height:400px;float:left;background:#282828;-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;}.bounty-list .map-container{float:left;width:450px;background:#242424;height:300px;display:none;}
+.bounty-list .list-container{float:left;width:450px;}
+.bounty-list-item-container{width:450px;height:80px;border-bottom:1px solid #111;background:transparent;}
+.bounty-list-item{width:450px;height:80px;background:#fff;float:left;position:relative;cursor:pointer;}.bounty-list-item .title{font-family:"DINPro-Medium",sans-serif;font-family:"DINPro-Medium",sans-serif;font-size:18px;line-height:24px;display:block;position:absolute;left:80px;top:8px;}
+.bounty-list-item .description{font-size:12px;line-height:18px;display:block;position:absolute;left:80px;top:34px;}
+.bounty-list-item .arrow-box{height:80px;width:20px;position:absolute;top:0;right:0;border-left:1px solid #ddd;}
+.bounty-list-item .arrow{width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:6px solid #333;position:absolute;top:31px;right:7px;}
+.bounty-list-item .issued-time{font-size:11px;line-height:18px;text-transform:uppercase;display:block;position:absolute;right:30px;bottom:2px;}
+.bounty-list-item .distance{font-size:11px;line-height:18px;text-transform:uppercase;display:block;position:absolute;right:120px;bottom:2px;}
+.reward{margin:20px;width:44px;height:40px;float:left;position:relative;font-family:"DINPro-Medium",sans-serif;font-family:"DINPro-Medium",sans-serif;}.reward .dollar-sign{float:left;font-size:10px;line-height:15px;margin-top:4px;}
+.reward .dollar-amount{float:left;font-size:20px;line-height:30px;margin-left:4px;}
+.reward .cents-amount{float:left;font-size:14px;line-height:18px;margin-top:4px;margin-left:2px;}
+.filter-box{float:left;position:relative;width:450px;height:34px;background:#363636;border-bottom:1px solid #000;-webkit-box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;-moz-box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;-webkit-box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;-moz-box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;box-shadow:inset 1px 0 0 #2c2c2c,inset -1px 0 0 #2c2c2c;}.filter-box .filter-button{width:100px;height:21px;padding-top:3px;border:1px solid #111;background:#3c3c3c;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px 2px 2px 2px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px 2px 2px 2px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;text-align:center;color:#fff;position:absolute;left:4px;top:4px;font-size:12px;line-height:18px;text-transform:uppercase;letter-spacing:1px;}
+.filter-box .button-container{position:absolute;right:4px;top:4px;height:24px;width:180x;}.filter-box .button-container .button{float:left;height:21px;padding:0px 6px;padding-top:3px;border:1px solid #111;background:#3c3c3c;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px 2px 2px 2px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:2px 2px 2px 2px;-moz-background-clip:padding;-webkit-background-clip:padding-box;background-clip:padding-box;text-align:center;color:#fff;font-size:12px;line-height:18px;text-transform:uppercase;letter-spacing:1px;min-width:20px;margin-left:5px;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;}.filter-box .button-container .button.active{background:#555;}
+.filter-box .filter-status{position:absolute;left:140px;top:8px;display:block;font-size:12px;line-height:18px;color:#ccc;}
+.bounty-mini-nav-container{width:450px;height:60px;float:left;}
+.bounty-mini-nav{width:450px;height:60px;}.bounty-mini-nav .nav-item{width:149.33333333333334px;height:23px;float:left;text-align:center;font-size:12px;line-height:18px;text-transform:uppercase;background:#303030;color:#aaa;padding-top:36px;letter-spacing:1px;cursor:pointer;border-bottom:1px solid #111;text-shadow:0,0,1px,#000;}.bounty-mini-nav .nav-item.active{background:#2a2a2a;color:#ddd;}
+.bounty-mini-nav .nav-item:first-child{border-right:1px solid #222;}
+.bounty-mini-nav .nav-item:last-child{border-left:1px solid #222;-webkit-box-shadow:inset -1px 0 0 #222222;-moz-box-shadow:inset -1px 0 0 #222222;box-shadow:inset -1px 0 0 #222222;-webkit-box-shadow:inset -1px 0 0 #222222;-moz-box-shadow:inset -1px 0 0 #222222;box-shadow:inset -1px 0 0 #222222;}
+.bounty-secondary-panel{position:fixed;width:380px;left:700px;top:0;bottom:0;background:#222;}

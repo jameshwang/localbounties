@@ -1,13 +1,9 @@
 Bounty.BountyListApp.Views.BountyContentPanel = Support.CompositeView.extend
 
   initialize: ->
-    # @listenTo(Bounty.BountyList.vent, 'content-panel:show-available-bounties', @showAvailableBounties())
-    # @listenTo(Bounty.BountyList.vent, 'content-panel:show-in-progress-bounties', @showInProgressBounties())
-    # @listenTo(Bounty.BountyList.vent, 'content-panel:show-completed-bounties', @showCompletedBounties())
+    @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-list', @showBountyList)
+    @listenTo(Bounty.BountyListApp.vent, 'content-panel:show-bounty-map', @showBountyMap)
 
-    # @listenTo(Bounty.BountyList.vent, 'content-panel:show-individual-bounty', @showIndividualBounty())
-    
-    # to start, show available bounties
     @showMiniNav()
     @showAvailableBounties()
 
@@ -27,8 +23,8 @@ Bounty.BountyListApp.Views.BountyContentPanel = Support.CompositeView.extend
     @renderChild(@bounty_list)
     $('#bounty-sub-content').append(@bounty_list.el)
 
-  showInProgressBounties: ->
+  showBountyMap: ->
+    console.log('show bounty map')
 
-  showCompletedBounties: ->
-
-  showIndividualBounty: (model) ->
+  showBountyList: ->
+    console.log('show bounty list')

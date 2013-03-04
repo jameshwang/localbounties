@@ -1,6 +1,9 @@
 .button.filter-button
   Filter
-.button.add-button
-  Add (to be removed)
+.button-container
+  .button.add-button
+    +
+  .button.button-map
+    Map
 .filter-status
   Showing closest first

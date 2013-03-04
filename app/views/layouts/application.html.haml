@@ -4,7 +4,9 @@
     %title ApperitifApp
     %meta{:charset => "utf-8"}
       = stylesheet_link_tag    "application", :media => "all"
+      = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA03gfazIRhSgMVUNAuh4_VDMhuDcZtS-s&sensor=true'
       = javascript_include_tag "application"
+      
       = yield :javascript
       = yield :stylesheet
       = yield :meta_tag
