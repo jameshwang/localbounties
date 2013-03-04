@@ -32,27 +32,12 @@ module Api
     # PUT /bounties/1.json
     def update
       @bounty = Bounty.find(params[:id])
+      unless current_user == @bounty.owner
+        render :status => 401
+      end
 
       if @bounty.update_attributes(params[:bounty])
-        head :no_content
-      else
-        render json: @bounty.errors, status: :unprocessable_entity
-      end
-    end
-
-    # DELETE /bounties/1.json
-    def destroy
-      @bounty = Bounty.find(params[:id])
-      @bounty.destroy
-
-      head :no_content
-    end
-
-    def available
-      @bounty = Bounty.find(params[:id])
-
-      if @bounty.make_available
-        head :no_content
+        render json: @bounty.to_json
       else
         render json: @bounty.errors, status: :unprocessable_entity
       end
@@ -73,24 +58,16 @@ module Api
     # POST /bounties/1/complete
     def complete
       @bounty = Bounty.find(params[:id])
-      hunter = User.find(params[:hunter_id])
+      unless current_user == @bounty.hunter
+        render :status => 401
+      end
 
-      if @bounty.complete(hunter)
-        head :no_content
+      if @bounty.complete
+        render json: @bounty.to_json
       else
         render json: @bounty.errors, status: :unprocessable_entity
       end
     end
 
-    # POST /bounties/1/reset
-    def reset
-      @bounty = Bounty.find(params[:id])
-
-      if @bounty.reset_status
-        head :no_content
-      else
-        render json: @bounty.errors, status: :unprocessable_entity
-      end
-    end
   end
 end

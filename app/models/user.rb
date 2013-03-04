@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   has_many :owned_bounties, :class_name => "Bounty", :foreign_key => "owner_id"
   has_many :hunted_bounties, :class_name => "Bounty", :foreign_key => "hunter_id"
 
-  before_create :generate_firebase_token
+  before_save :generate_firebase_token
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

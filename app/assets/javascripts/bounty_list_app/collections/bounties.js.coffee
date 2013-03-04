@@ -27,7 +27,7 @@ class Bounty.BountyListApp.Collections.BountiesInProgress extends Backbone.Fireb
   model: Bounty.BountyListApp.Models.Bounty
 
   firebase: ->
-    @api_endpoint = '/users/' + Bounty.BountyListApp.user.id + '/bounties/in-progress'
+    @api_endpoint = '/users/' + Bounty.BountyListApp.user.firebase_token + '/bounties/in-progress'
     Bounty.BountyListApp.firebase_url + @api_endpoint
 
 class Bounty.BountyListApp.Collections.BountiesCompleted extends Backbone.Firebase.Collection
@@ -35,7 +35,7 @@ class Bounty.BountyListApp.Collections.BountiesCompleted extends Backbone.Fireba
   model: Bounty.BountyListApp.Models.Bounty
 
   firebase: ->
-    @api_endpoint = '/users/' + Bounty.BountyListApp.user.id + '/bounties/completed'
+    @api_endpoint = '/users/' + Bounty.BountyListApp.user.firebase_token + '/bounties/completed'
     Bounty.BountyListApp.firebase_url + @api_endpoint
 
 class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.Firebase.Collection
@@ -43,7 +43,7 @@ class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.
   model: Bounty.BountyListApp.Models.Bounty
 
   firebase: ->
-    @api_endpoint = '/users/' + Bounty.BountyListApp.user.id + '/bounties/available-issued'
+    @api_endpoint = '/users/' + Bounty.BountyListApp.user.firebase_token + '/bounties/available-issued'
     Bounty.BountyListApp.firebase_url + @api_endpoint
 
 class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.Firebase.Collection
@@ -51,7 +51,7 @@ class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.
   model: Bounty.BountyListApp.Models.Bounty
 
   firebase: ->
-    @api_endpoint = '/users/' + Bounty.BountyListApp.user.id + '/bounties/in-progress-issued'
+    @api_endpoint = '/users/' + Bounty.BountyListApp.user.firebase_token + '/bounties/in-progress-issued'
     Bounty.BountyListApp.firebase_url + @api_endpoint
 
 class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.Firebase.Collection
@@ -59,5 +59,5 @@ class Bounty.BountyListApp.Collections.IssuedBountiesCompleted extends Backbone.
   model: Bounty.BountyListApp.Models.Bounty
 
   firebase: ->
-    @api_endpoint = '/users/' + Bounty.BountyListApp.user.id + '/bounties/completed-issued'
+    @api_endpoint = '/users/' + Bounty.BountyListApp.user.firebase_token + '/bounties/completed-issued'
     Bounty.BountyListApp.firebase_url + @api_endpoint

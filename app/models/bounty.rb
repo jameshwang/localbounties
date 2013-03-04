@@ -57,6 +57,8 @@ class Bounty < ActiveRecord::Base
   belongs_to :hunter, :class_name => "User"
   belongs_to :owner, :class_name => "User"
 
+  validates :owner, :presence => true
+
   before_save :update_due_date
   # after_update :update_firebase
   after_create :make_available
@@ -65,7 +67,7 @@ class Bounty < ActiveRecord::Base
     update_attribute(:status, 'available')
 
     firebase_add_by_bounty
-    firebase_add_by_user(owner_id, "available-issued")
+    firebase_add_by_user(owner.firebase_token, "available-issued")
   end
 
   def self.make_all_available
@@ -84,7 +86,7 @@ class Bounty < ActiveRecord::Base
     # update firebase
     # remove bounty from global available and owner available-issued bounties
     firebase_delete_by_bounty
-    firebase_delete_by_user(owner_id, "available-issued")
+    firebase_delete_by_user(owner.firebase_token, "available-issued")
     
     # create new bounty for owner in-progress
     firebase_add_by_user(hunter.firebase_token, "in-progress")
@@ -93,27 +95,27 @@ class Bounty < ActiveRecord::Base
     firebase_add_by_user(owner.firebase_token, "in-progress-issued")
   end
 
-  def complete(user)
+  def complete
     update_attribute(:status, 'completed')
 
     # update firebase
     # remove the owner and hunter in progress bounties
-    firebase_delete_by_user(owner_id, "in-progress")
-    firebase_delete_by_user(hunter_id, "in-progress-issued")
+    firebase_delete_by_user(owner.firebase_token, "in-progress")
+    firebase_delete_by_user(hunter.firebase_token, "in-progress-issued")
 
     # create new bounty for owner completed
-    firebase_add_by_user(owner_id, "completed")
+    firebase_add_by_user(owner.firebase_token, "completed")
 
     #create new issued-bounty for hunter completed
-    firebase_add_by_user(hunter_id, "completed-issued")
+    firebase_add_by_user(hunter.firebase_token, "completed-issued")
   end
 
   def reset_status
-    firebase_delete_by_user(owner_id, "in-progress")
-    firebase_delete_by_user(owner_id, "completed")
+    firebase_delete_by_user(owner.firebase_token, "in-progress")
+    firebase_delete_by_user(owner.firebase_token, "completed")
 
-    firebase_delete_by_user(hunter_id, "in-progress-issued")
-    firebase_delete_by_user(hunter_id, "completed-issued")
+    firebase_delete_by_user(hunter.firebase_token, "in-progress-issued")
+    firebase_delete_by_user(hunter.firebase_token, "completed-issued")
 
     update_attribute(:status, nil)
     update_attribute(:hunter_id, nil)
@@ -153,14 +155,14 @@ class Bounty < ActiveRecord::Base
     Firebase.set("bounties/available/bounty-#{id}", firebase_json)
   end
 
-  def firebase_add_by_user(user_token, status)
+  def firebase_add_by_user(firebase_token, status)
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.set("users/#{user_id}/bounties/#{status}/bounty-#{id}", firebase_json)
+    Firebase.set("users/#{firebase_token}/bounties/#{status}/bounty-#{id}", firebase_json)
   end
 
-  def firebase_delete_by_user(user_id, status)
+  def firebase_delete_by_user(firebase_token, status)
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.delete("users/#{user_id}/bounties/#{status}/bounty-#{id}")
+    Firebase.delete("users/#{firebase_token}/bounties/#{status}/bounty-#{id}")
   end
 
   def firebase_delete_by_bounty
