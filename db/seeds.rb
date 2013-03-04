@@ -9,11 +9,11 @@
 
 User.delete_all
 
-User.create(name: "Michael S.")
-User.create(name: "Joseph K.")
-User.create(name: "Connor W.")
-User.create(name: "Vincent S.")
-User.create(name: "James H.")
+User.create(name: "Michael S.", email: "michael@email.com")
+User.create(name: "Joseph K.", email: "joseph@email.com")
+User.create(name: "Connor W.", email: "connor@email.com")
+User.create(name: "Vincent S.", email: "vincent@email.com")
+User.create(name: "James H.", email: "james@email.com")
 
 Bounty.delete_all
 
