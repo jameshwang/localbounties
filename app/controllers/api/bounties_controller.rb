@@ -62,11 +62,12 @@ module Api
     # POST /bounties/1/complete
     def complete
       @bounty = Bounty.find(params[:id])
+      @verification_message = params[:verification_message]
       unless current_user == @bounty.hunter
         render :status => 401
       end
 
-      if @bounty.complete
+      if @bounty.complete @verification_message
         render json: @bounty.to_json
       else
         render json: @bounty.errors, status: :unprocessable_entity

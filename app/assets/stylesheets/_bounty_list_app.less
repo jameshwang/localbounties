@@ -447,8 +447,7 @@
     position: relative;
   }
 
-  .verification-box {
-    height: 220px;
+  .completion-box {
     width: @secondary_panel_width;
     .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
     float: left;
@@ -463,9 +462,9 @@
     }
 
     .countdown-box {
-      position: absolute;
-      top: 10px;
-      left: 10px;
+      float: left;
+      margin-top: 10px;
+      margin-left: 10px;
       width: 160px;
       height: 60px;
       background: #252525;
@@ -478,17 +477,32 @@
     }
 
     .warning-box {
-      width: @secondary_panel_width - 160px;
+      margin-top: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+      width: @secondary_panel_width - 160px - 50px;
       float: left;
+      font-size: 12px;
+      line-height: 18px;
+
     }
 
     .bottom-section {
       width: @secondary_panel_width;
       float: left;
+      position: relative;
       height: 100px;
     }
 
-    .verification-textarea {
+    .button-section {
+      width: @secondary_panel_width;
+      float: left;
+      position: relative;
+      height: 70px;
+      margin-top: 20px;
+    }
+
+    .verification-message {
       padding: 10px;
       .rounded(3px);
       outline: none;
@@ -501,6 +515,11 @@
       color: #eee;
       font-size: 12px;
       line-height: 18px;
+    }
+
+    .complete-button {
+      background: #eee;
+      color: #222;
     }
 
   }

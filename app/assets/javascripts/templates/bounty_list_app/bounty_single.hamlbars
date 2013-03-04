@@ -6,15 +6,17 @@
   .action-button-container
     %button.button-accept
       Accept this bounty
-  .verification-box.hidden
+  .completion-box.hidden
     .top-section
       .countdown-box
         123
       .warning-box
+        You have a limited time to complete this bounty.  If time runs out, the bounty becomes available again.
     .bottom-section
-      %textarea{:class => 'verification-textarea'}
-    %button.big-button.verify-button
-      Verify
+      %textarea{:class => 'verification-message'}
+    .button-section
+      %button.big-button.complete-button
+        Complete
 .bottom-info
   .section.owner-section
     .avatar

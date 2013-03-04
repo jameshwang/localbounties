@@ -53,6 +53,7 @@ class Bounty < ActiveRecord::Base
                   :title,
                   :verification_type,
                   :verification,
+                  :verification_message,
                   :accepted_at
 
   belongs_to :hunter, :class_name => "User"
@@ -97,8 +98,9 @@ class Bounty < ActiveRecord::Base
     firebase_add_by_user(owner.firebase_token, "in-progress-issued")
   end
 
-  def complete
+  def complete(verification_message)
     update_attribute(:status, 'completed')
+    update_attribute(:verification_message, 'verification_message')
 
     # update firebase
     # remove the owner and hunter in progress bounties
@@ -140,6 +142,7 @@ class Bounty < ActiveRecord::Base
         :title => title,
         :verification_type => verification_type,
         :verification => verification,
+        :verification_message => verification_message,
         :accepted_at => accepted_at,
         :created_at => created_at
     }
