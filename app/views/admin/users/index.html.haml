@@ -1,0 +1,29 @@
+%h1 Listing Users
+
+%table.table
+  %tr
+    %th Name
+    %th User Pic
+    %th Stripe Id
+    %th Stripe Tok
+    %th City
+    %th Status
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.user_pic
+      %td= user.stripe_id
+      %td= user.stripe_tok
+      %td= user.city
+      %td= user.status
+      %td= link_to 'Show', admin_user_path(user)
+      %td= link_to 'Edit', edit_admin_user_path(user)
+      %td= link_to 'Destroy', [:admin,user], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New User', new_admin_user_path

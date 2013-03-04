@@ -9,7 +9,9 @@ class BountiesController < ApplicationController
       bounty_json = {}
       bounty_json = bounty.attributes
       bounty_json.merge({ owner_name: bounty.owner.try(:name),
-                      hunter_name: bounty.hunter.try(:name) })
+                          owner_status: bounty.owner.try(:status),
+                          hunter_name: bounty.hunter.try(:name),
+                          hunter_status: bounty.hunter.try(:status) })
     end
 
     respond_to do |format|

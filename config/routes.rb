@@ -7,6 +7,7 @@ Localbounties::Application.routes.draw do
 
 
   namespace :admin do
+  	resources :users
     resources :bounties
   end
 

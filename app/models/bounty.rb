@@ -66,7 +66,7 @@ class Bounty < ActiveRecord::Base
   def create_firebase
     Firebase.base_uri = ENV['FIREBASE_URL']
     # Firebase.push("Bounty-#{id}", { :id => id})
-    Firebase.set("Bounty-#{id}", { :id => id,
+    firebase_response = Firebase.push("bounties", { :id => id,
                               :description => description,
                               :due_date => due_date,
                               :duration => duration,
@@ -79,11 +79,15 @@ class Bounty < ActiveRecord::Base
                               :title => title,
                               :verification_type => verification_type,
                               :verification => verification })
+    Firebase.base_uri = ENV['FIREBASE_URL'] + "/queries/by_status"
+    Firebase.push(status, JSON.parse(firebase_response.response.body)['name'])
+
+
   end
 
   def update_firebase
     Firebase.base_uri = ENV['FIREBASE_URL']
-    Firebase.set("Bounty-#{id}", { :id => id,
+    firebase_response = Firebase.push("bounties", { :id => id,
                               :description => description,
                               :due_date => due_date,
                               :duration => duration,
@@ -96,5 +100,8 @@ class Bounty < ActiveRecord::Base
                               :title => title,
                               :verification_type => verification_type,
                               :verification => verification })
+
+    Firebase.base_uri = ENV['FIREBASE_URL'] + "/queries/by_status"
+    Firebase.push(status, JSON.parse(firebase_response.response.body)['name'])
   end
 end
