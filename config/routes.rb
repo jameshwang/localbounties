@@ -22,7 +22,7 @@ Localbounties::Application.routes.draw do
   namespace :api do
     # resources :bounties
     match 'bounties/:id/available' => 'bounties#available'
-    match 'bounties/:id/claim' => 'bounties#claim'
+    match 'bounties/:id/accept' => 'bounties#accept'
     match 'bounties/:id/complete' => 'bounties#complete'
     match 'bounties/:id/reset' => 'bounties#reset'
   end

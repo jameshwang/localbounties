@@ -364,10 +364,25 @@
 
   .action-section {
     float: left;
-    height: 70px;
     width: @secondary_panel_width;
     .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
     position: relative;
+    background: #fff;
+  }
+
+  .action-button-container {
+    float: left;
+    height: 70px;
+    width: @secondary_panel_width;
+    position: relative;
+  }
+
+  .additional-action-info {
+    height: 70px;
+    width: @secondary_panel_width;
+    .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
+    float: left;
+    background: red;
   }
 
   .button-accept {
@@ -391,7 +406,9 @@
   }
 
   .owner-section {
+    background: #fff;
     float: left;
+    .inner-shadow(1px, 0, 0, rgba(0,0,0,.1));
     width: @secondary_panel_width - 40px;
     padding: 20px;
     height: 40px;
@@ -432,6 +449,20 @@
     float: left;
     width: @secondary_panel_width - 40px;
     padding: 20px;
+
+    .label {
+      .primary_font_bold();
+      color: #333;
+      font-size: 12px;
+      line-height: 18px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .description-block {
+      font-size: 14px;
+      line-height: 20px;
+    }
   }
 
   .details-section {
@@ -461,7 +492,7 @@
       }
 
       .label {
-        height: 20px;
+        height: 26px;
         font-size: 10px;
         line-height: 18px;
         width: (@secondary_panel_width - 40px - 20px)/3;

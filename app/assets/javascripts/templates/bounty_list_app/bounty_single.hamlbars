@@ -3,8 +3,9 @@
   .title
     {{title}}
 .action-section
-  %button.button-accept
-    Accept this bounty
+  .action-button-container
+    %button.button-accept
+      Accept this bounty
   .additional-action-info.hidden
     Additional info here
 .bottom-info
