@@ -59,9 +59,9 @@ class Bounty < ActiveRecord::Base
 
   before_save :update_due_date
   # after_update :update_firebase
-  after_create :available
+  after_create :make_available
 
-  def available
+  def make_available
     update_attribute(:status, 'available')
 
     firebase_add_by_bounty
@@ -135,7 +135,12 @@ class Bounty < ActiveRecord::Base
         :status => status,
         :title => title,
         :verification_type => verification_type,
-        :verification => verification 
+        :verification => verification,
+        :owner => {
+          :name => owner.name,
+          :avatar => owner.avatar,
+          :ranked => 'Peon'
+        }
     }
   end
 

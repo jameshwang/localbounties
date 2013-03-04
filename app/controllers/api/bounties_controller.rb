@@ -50,7 +50,7 @@ module Api
     def available
       @bounty = Bounty.find(params[:id])
 
-      if @bounty.available
+      if @bounty.make_available
         head :no_content
       else
         render json: @bounty.errors, status: :unprocessable_entity
