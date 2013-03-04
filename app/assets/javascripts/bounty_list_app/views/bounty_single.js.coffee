@@ -17,6 +17,11 @@ Bounty.BountyListApp.Views.BountySingle = Support.CompositeView.extend
     if @model.get('status') == 'in_progress'
       @$el.find('.button-accept').html('Bounty accepted!')
       @$el.find('.verification-box').show()
+
+      due_date = new Date(@model.get('accepted_at'))
+      duration = @model.get('duration')
+      due_date.setMinutes(due_date.getMinutes() + parseInt(duration))
+      @$el.find('.countdown-box').countdown({until: due_date,layout: "<span class='minutes'>{mnn}</span>:<span class='seconds'>{snn}</span> "})
     @$el
 
   accept: ->
