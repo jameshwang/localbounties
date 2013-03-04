@@ -21,7 +21,7 @@ Bounty.BountyListApp.Views.SideNav = Support.CompositeView.extend
       when '1'
         event = 'show-bounty-hunter'
       when '2'
-        event = 'show-bounty-hunter'
+        event = 'show-bounty-issuer'
       when '3'
         event = 'show-my-account'
       when '4'
